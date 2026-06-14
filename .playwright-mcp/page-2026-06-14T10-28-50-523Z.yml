@@ -1,0 +1,91 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e645]:
+    - banner [ref=e646]:
+      - generic [ref=e647]:
+        - generic [ref=e648]: P
+        - generic [ref=e649]: Posta Mail
+      - button "▶ Start demo" [ref=e650] [cursor=pointer]:
+        - generic [ref=e651]: ▶
+        - text: Start demo
+      - button "Presenter" [ref=e652] [cursor=pointer]
+      - generic [ref=e653]:
+        - button "Classic" [ref=e654] [cursor=pointer]
+        - button "Chat" [ref=e655] [cursor=pointer]
+      - button "Search mail, people, attachments /" [ref=e656] [cursor=pointer]:
+        - generic [ref=e657]: Search mail, people, attachments
+        - strong [ref=e658]: /
+      - button "◌" [ref=e659] [cursor=pointer]
+      - button "●" [ref=e660] [cursor=pointer]
+      - button "⚙" [ref=e661] [cursor=pointer]
+      - generic [ref=e662]: OH
+    - main [ref=e663]:
+      - generic [ref=e664]:
+        - complementary [ref=e665]:
+          - generic [ref=e666]: Conversations
+          - heading "People-first inbox" [level=2] [ref=e667]
+          - article [ref=e668] [cursor=pointer]:
+            - generic [ref=e670]: SN
+            - generic [ref=e672]:
+              - generic [ref=e673]:
+                - strong [ref=e674]: Sara Nabil
+                - generic [ref=e675]: 09:42
+              - generic [ref=e676]: Proposal review before Thursday demo
+              - generic [ref=e677]: Can we make the classic screen feel premium enough for executives?
+          - article [ref=e678] [cursor=pointer]:
+            - generic [ref=e680]: YS
+            - generic [ref=e682]:
+              - generic [ref=e683]:
+                - strong [ref=e684]: Youssef Samir
+                - generic [ref=e685]: 08:15
+              - generic [ref=e686]: Invoice batch needs approval
+              - generic [ref=e687]: The Q2 vendor batch is ready, but two invoices need a second look.
+          - article [ref=e688] [cursor=pointer]:
+            - generic [ref=e690]: MA
+            - generic [ref=e692]:
+              - generic [ref=e693]:
+                - strong [ref=e694]: Mariam Adel
+                - generic [ref=e695]: Mon
+              - generic [ref=e696]: Updated remote work policy
+              - generic [ref=e697]: Please review the updated policy before we publish it company-wide.
+          - article [ref=e698] [cursor=pointer]:
+            - generic [ref=e700]: SD
+            - generic [ref=e702]:
+              - generic [ref=e703]:
+                - strong [ref=e704]: Support Desk
+                - generic [ref=e705]: 07:58
+              - generic [ref=e706]: "Escalation: shared mailbox delivery delay"
+              - generic [ref=e707]: Several customers reported delayed responses from support@.
+          - article [ref=e708] [cursor=pointer]:
+            - generic [ref=e710]: LM
+            - generic [ref=e712]:
+              - generic [ref=e713]:
+                - strong [ref=e714]: Lina Morgan
+                - generic [ref=e715]: Tue
+              - generic [ref=e716]: "Northstar onboarding: DNS + mailbox migration"
+              - generic [ref=e717]: We are ready for the migration window. Please confirm DNS cutover timing.
+        - generic [ref=e718]:
+          - generic [ref=e719]:
+            - generic [ref=e720]:
+              - strong [ref=e721]: Sara Nabil
+              - generic [ref=e722]: Proposal review before Thursday demo
+            - generic [ref=e723]:
+              - button "Open in Classic" [ref=e724] [cursor=pointer]
+              - button "Mute" [ref=e725] [cursor=pointer]
+          - generic [ref=e726]:
+            - generic [ref=e727]:
+              - generic [ref=e728]: "Yesterday 16:18 · To: Omar · CC: Product"
+              - text: "I pulled the stakeholder questions into one doc. The biggest ask is confidence: they want the classic mode to feel familiar but not like a cheap OWA clone."
+            - generic [ref=e729]:
+              - generic [ref=e730]: "Yesterday 17:02 · To: Sara"
+              - text: Agreed. We should treat Classic as the trust anchor and Chat as the innovation layer. Same mailbox, different pace.
+            - generic [ref=e731]:
+              - generic [ref=e732]: "Today 09:42 · To: Omar"
+              - text: Exactly. Can we make the classic screen feel premium enough for executives? I want the reading pane to look like a cockpit, not a webmail table.
+              - generic [ref=e733] [cursor=pointer]: ▧ posta-demo-outline.pdf
+          - generic [ref=e735]:
+            - button "Mention another recipient" [ref=e736] [cursor=pointer]:
+              - generic [ref=e737]: "@"
+            - textbox "Reply to Sara Nabil…" [ref=e738]
+            - button "Send" [ref=e739] [cursor=pointer]
+            - button "Expand" [ref=e740] [cursor=pointer]
+  - generic [ref=e99]: Quick reply sent · also to 2 recipients

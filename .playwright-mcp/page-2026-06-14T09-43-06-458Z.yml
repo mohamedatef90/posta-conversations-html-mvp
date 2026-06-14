@@ -1,0 +1,83 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: P
+      - generic [ref=e7]: Posta Mail
+    - heading "Enterprise mail, reimagined." [level=1] [ref=e8]:
+      - text: Enterprise mail,
+      - text: reimagined.
+    - paragraph [ref=e9]: A premium dual-mode mailbox for high-performance teams. Executive folder control meets conversation-speed messaging—built on Exchange.
+    - generic [ref=e10]:
+      - button "▶ Start guided demo" [ref=e11] [cursor=pointer]:
+        - generic [ref=e12]: ▶
+        - text: Start guided demo
+      - button "Sign in" [ref=e13] [cursor=pointer]
+    - generic [ref=e14]:
+      - generic [ref=e15]: Enterprise-ready
+      - generic [ref=e16]: •
+      - generic [ref=e17]: Exchange native
+      - generic [ref=e18]: •
+      - generic [ref=e19]: Zero data migration
+  - complementary [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e27]:
+          - generic [ref=e28]: Classic
+          - generic [ref=e29]: Chat
+        - generic: Posta Mail
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: Mailboxes
+          - generic [ref=e33]:
+            - generic [ref=e34]: Inbox
+            - generic [ref=e35]: "7"
+          - generic [ref=e36]:
+            - generic [ref=e37]: Priority
+            - generic [ref=e38]: "3"
+          - generic [ref=e40]: Sent
+          - generic [ref=e42]: Archive
+          - generic [ref=e43]:
+            - generic [ref=e44]: Support
+            - generic [ref=e45]: "5"
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: SN
+            - generic [ref=e49]:
+              - generic [ref=e50]:
+                - strong [ref=e51]: Sara Nabil
+                - generic [ref=e52]: 09:42
+              - generic [ref=e53]: Proposal review before demo
+              - generic [ref=e54]: Can we make Classic feel premium…
+          - generic [ref=e55]:
+            - generic [ref=e56]: YS
+            - generic [ref=e57]:
+              - generic [ref=e58]:
+                - strong [ref=e59]: Youssef Samir
+                - generic [ref=e60]: 08:15
+              - generic [ref=e61]: Invoice batch needs approval
+              - generic [ref=e62]: Q2 vendor batch is ready, but…
+          - generic [ref=e63]:
+            - generic [ref=e64]: LM
+            - generic [ref=e65]:
+              - generic [ref=e66]:
+                - strong [ref=e67]: Lina Morgan
+                - generic [ref=e68]: Tue
+              - generic [ref=e69]: "Northstar onboarding: DNS"
+              - generic [ref=e70]: Ready for the migration window…
+        - generic [ref=e71]:
+          - generic [ref=e72]: High priority · inbox
+          - generic [ref=e73]: Proposal review before Thursday demo
+          - generic [ref=e74]: Sara Nabil · Sales Lead
+          - generic [ref=e78]: ▧ posta-demo-outline.pdf
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]: SN
+        - generic [ref=e82]:
+          - strong [ref=e83]: Sara Nabil
+          - generic [ref=e84]: Conversations
+      - generic [ref=e85]:
+        - generic [ref=e86]: Make Classic feel premium for execs?
+        - generic [ref=e87]: On it — same mailbox, faster pace.
+      - generic [ref=e88]:
+        - generic [ref=e89]: Reply to Sara…
+        - generic [ref=e90]: ➤

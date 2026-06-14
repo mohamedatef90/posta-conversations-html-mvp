@@ -1,0 +1,204 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: P
+      - generic [ref=e7]: Posta Mail
+    - button "▶ Start demo" [ref=e8] [cursor=pointer]:
+      - generic [ref=e9]: ▶
+      - text: Start demo
+    - button "Presenter" [ref=e10] [cursor=pointer]
+    - generic [ref=e11]:
+      - button "Classic" [ref=e12] [cursor=pointer]
+      - button "Chat" [ref=e13] [cursor=pointer]
+    - button "Search mail, people, attachments /" [ref=e14] [cursor=pointer]:
+      - generic [ref=e15]: Search mail, people, attachments
+      - strong [ref=e16]: /
+    - button "◌" [ref=e17] [cursor=pointer]
+    - button "●" [ref=e18] [cursor=pointer]
+    - button "⚙" [ref=e19] [cursor=pointer]
+    - generic [ref=e20]: OH
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - button " New Email" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: 
+          - text: New Email
+        - button " Delete" [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: 
+          - text: Delete
+        - button " Archive" [ref=e29] [cursor=pointer]:
+          - generic [ref=e30]: 
+          - text: Archive
+        - button " Reply" [ref=e32] [cursor=pointer]:
+          - generic [ref=e33]: 
+          - text: Reply
+        - button " Reply All" [ref=e34] [cursor=pointer]:
+          - generic [ref=e35]: 
+          - text: Reply All
+        - button " Forward" [ref=e36] [cursor=pointer]:
+          - generic [ref=e37]: 
+          - text: Forward
+        - button " Flag" [ref=e39] [cursor=pointer]:
+          - generic [ref=e40]: 
+          - text: Flag
+        - button " Mark Read" [ref=e41] [cursor=pointer]:
+          - generic [ref=e42]: 
+          - text: Mark Read
+        - button " View as chat" [ref=e43] [cursor=pointer]:
+          - generic [ref=e44]: 
+          - text: View as chat
+      - generic [ref=e45]:
+        - complementary [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: 
+            - text: Favorites
+          - generic [ref=e49] [cursor=pointer]:
+            - generic [ref=e50]: 
+            - generic [ref=e51]: Inbox
+            - generic [ref=e52]: "7"
+          - generic [ref=e53] [cursor=pointer]:
+            - generic [ref=e54]: 
+            - generic [ref=e55]: Sent Items
+          - generic [ref=e56]:
+            - generic [ref=e57]: 
+            - text: omar.hassan@worldposta.local
+          - generic [ref=e58] [cursor=pointer]:
+            - generic [ref=e59]: 
+            - generic [ref=e60]: Inbox
+            - generic [ref=e61]: "7"
+          - generic [ref=e62] [cursor=pointer]:
+            - generic [ref=e63]: 
+            - generic [ref=e64]: Priority
+            - generic [ref=e65]: "3"
+          - generic [ref=e66] [cursor=pointer]:
+            - generic [ref=e67]: 
+            - generic [ref=e68]: Sent
+          - generic [ref=e69] [cursor=pointer]:
+            - generic [ref=e70]: 
+            - generic [ref=e71]: Drafts
+          - generic [ref=e72] [cursor=pointer]:
+            - generic [ref=e73]: 
+            - generic [ref=e74]: Archive
+          - generic [ref=e75] [cursor=pointer]:
+            - generic [ref=e76]: 
+            - generic [ref=e77]: Support Shared
+            - generic [ref=e78]: "5"
+          - generic [ref=e79] [cursor=pointer]:
+            - generic [ref=e80]: 
+            - generic [ref=e81]: Deleted Items
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - generic [ref=e84]: 
+            - text: Search Current Mailbox
+            - generic [ref=e85]: Ctrl+E
+          - generic [ref=e86]:
+            - generic [ref=e87]:
+              - button "Focused" [ref=e88] [cursor=pointer]
+              - button "Other" [ref=e89] [cursor=pointer]
+            - generic [ref=e91]:
+              - text: By Date
+              - generic [ref=e92]: 
+          - generic [ref=e93]: Today
+          - generic [ref=e94]:
+            - article [ref=e95] [cursor=pointer]:
+              - generic [ref=e97]: SN
+              - generic [ref=e98]:
+                - generic [ref=e99]:
+                  - generic [ref=e100]: Sara Nabil
+                  - generic [ref=e101]: 09:42
+                - generic [ref=e102]:
+                  - generic [ref=e103]: Proposal review before Thursday demo
+                  - generic [ref=e104]: 
+                - generic [ref=e105]:
+                  - generic [ref=e106]: Can we make the classic screen feel premium enough for executives?
+                  - generic [ref=e107]: 
+            - article [ref=e108] [cursor=pointer]:
+              - generic [ref=e110]: YS
+              - generic [ref=e111]:
+                - generic [ref=e112]:
+                  - generic [ref=e113]: Youssef Samir
+                  - generic [ref=e114]: 08:15
+                - generic [ref=e116]: Invoice batch needs approval
+                - generic [ref=e117]:
+                  - generic [ref=e118]: The Q2 vendor batch is ready, but two invoices need a second look.
+                  - generic [ref=e119]: 
+            - article [ref=e120] [cursor=pointer]:
+              - generic [ref=e122]: MA
+              - generic [ref=e123]:
+                - generic [ref=e124]:
+                  - generic [ref=e125]: Mariam Adel
+                  - generic [ref=e126]: Mon
+                - generic [ref=e128]: Updated remote work policy
+                - generic [ref=e130]: Please review the updated policy before we publish it company-wide.
+            - article [ref=e131] [cursor=pointer]:
+              - generic [ref=e133]: SD
+              - generic [ref=e134]:
+                - generic [ref=e135]:
+                  - generic [ref=e136]: Support Desk
+                  - generic [ref=e137]: 07:58
+                - generic [ref=e138]:
+                  - generic [ref=e139]: "Escalation: shared mailbox delivery delay"
+                  - generic [ref=e140]: 
+                - generic [ref=e142]: Several customers reported delayed responses from support@.
+            - article [ref=e143] [cursor=pointer]:
+              - generic [ref=e145]: LM
+              - generic [ref=e146]:
+                - generic [ref=e147]:
+                  - generic [ref=e148]: Lina Morgan
+                  - generic [ref=e149]: Tue
+                - generic [ref=e150]:
+                  - generic [ref=e151]: "Northstar onboarding: DNS + mailbox migration"
+                  - generic [ref=e152]: 
+                - generic [ref=e153]:
+                  - generic [ref=e154]: We are ready for the migration window. Please confirm DNS cutover timing.
+                  - generic [ref=e155]: 
+          - generic [ref=e156]:
+            - generic [ref=e157]: 
+            - text: 5 items · 3 unread · Connected to Exchange
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - text: Proposal review before Thursday demo
+              - generic [ref=e161]: 
+            - generic [ref=e162]:
+              - generic [ref=e163]: SN
+              - generic [ref=e164]:
+                - generic [ref=e165]: Sara Nabil <sara.nabil@worldposta.local>
+                - generic [ref=e166]:
+                  - text: "To: Omar Hassan; CC: Product"
+                  - generic [ref=e167]: Today 09:42
+              - generic [ref=e168]:
+                - button "" [ref=e169] [cursor=pointer]:
+                  - generic [ref=e170]: 
+                - button "" [ref=e171] [cursor=pointer]:
+                  - generic [ref=e172]: 
+                - button "" [ref=e173] [cursor=pointer]:
+                  - generic [ref=e174]: 
+          - generic [ref=e175]:
+            - article [ref=e176]:
+              - generic [ref=e177]:
+                - generic [ref=e178]: SN
+                - generic [ref=e179]:
+                  - strong [ref=e180]: Sara Nabil
+                  - generic [ref=e181]: "To: Omar · CC: Product"
+                - generic [ref=e182]: Yesterday 16:18
+              - paragraph [ref=e183]: "I pulled the stakeholder questions into one doc. The biggest ask is confidence: they want the classic mode to feel familiar but not like a cheap OWA clone."
+            - article [ref=e184]:
+              - generic [ref=e185]:
+                - generic [ref=e186]: OH
+                - generic [ref=e187]:
+                  - strong [ref=e188]: Omar Hassan
+                  - generic [ref=e189]: "To: Sara"
+                - generic [ref=e190]: Yesterday 17:02
+              - paragraph [ref=e191]: Agreed. We should treat Classic as the trust anchor and Chat as the innovation layer. Same mailbox, different pace.
+            - article [ref=e192]:
+              - generic [ref=e193]:
+                - generic [ref=e194]: SN
+                - generic [ref=e195]:
+                  - strong [ref=e196]: Sara Nabil
+                  - generic [ref=e197]: "To: Omar"
+                - generic [ref=e198]: Today 09:42
+              - paragraph [ref=e199]: Exactly. Can we make the classic screen feel premium enough for executives? I want the reading pane to look like a cockpit, not a webmail table.
+              - generic [ref=e200] [cursor=pointer]:
+                - generic [ref=e201]: 
+                - text: posta-demo-outline.pdf · 1.8 MB

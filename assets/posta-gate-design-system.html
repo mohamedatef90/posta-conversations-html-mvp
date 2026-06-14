@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Posta Gate — Visual Identity & Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ── BRAND COLORS ── */
+    --cyan-500:   #00C8D4;
+    --cyan-400:   #26D6E0;
+    --cyan-300:   #5DE4EC;
+    --cyan-200:   #9EEDF2;
+    --cyan-100:   #D0F7FA;
+    --cyan-50:    #EDFCFD;
+
+    --blue-900:   #0B1E6E;
+    --blue-800:   #122294;
+    --blue-700:   #1630B8;
+    --blue-600:   #1A3FD0;  /* wordmark */
+    --blue-500:   #2255E0;
+    --blue-400:   #4A78E8;
+    --blue-300:   #7AA0F0;
+    --blue-200:   #B0C8F8;
+    --blue-100:   #D8E7FC;
+    --blue-50:    #EEF4FF;
+
+    --indigo-900: #1A1060;
+    --indigo-800: #251880;
+    --indigo-700: #3328A0;
+    --indigo-600: #4338C0;
+    --indigo-500: #5046D0;  /* ribbon bottom */
+    --indigo-400: #7168E0;
+    --indigo-300: #9B96EC;
+    --indigo-200: #C4C0F4;
+    --indigo-100: #E0DEF9;
+    --indigo-50:  #F0EFFC;
+
+    /* Neutrals */
+    --gray-950:   #0A0D14;
+    --gray-900:   #111827;
+    --gray-800:   #1F2937;
+    --gray-700:   #374151;
+    --gray-600:   #4B5563;
+    --gray-500:   #6B7280;
+    --gray-400:   #9CA3AF;
+    --gray-300:   #D1D5DB;
+    --gray-200:   #E5E7EB;
+    --gray-100:   #F3F4F6;
+    --gray-50:    #F9FAFB;
+    --white:      #FFFFFF;
+
+    /* Semantic */
+    --success-500: #10B981;
+    --success-100: #D1FAE5;
+    --warning-500: #F59E0B;
+    --warning-100: #FEF3C7;
+    --error-500:   #EF4444;
+    --error-100:   #FEE2E2;
+    --info-500:    #3B82F6;
+    --info-100:    #DBEAFE;
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+
+    /* Shadow */
+    --shadow-xs: 0 1px 2px rgba(11,30,110,0.06);
+    --shadow-sm: 0 1px 3px rgba(11,30,110,0.10), 0 1px 2px rgba(11,30,110,0.06);
+    --shadow-md: 0 4px 6px rgba(11,30,110,0.08), 0 2px 4px rgba(11,30,110,0.05);
+    --shadow-lg: 0 10px 24px rgba(11,30,110,0.12), 0 4px 8px rgba(11,30,110,0.06);
+    --shadow-xl: 0 20px 40px rgba(11,30,110,0.16);
+    --shadow-brand: 0 8px 32px rgba(22,48,176,0.28);
+
+    /* Spacing base: 4px */
+    --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
+    --sp-5: 20px;  --sp-6: 24px;  --sp-8: 32px;  --sp-10: 40px;
+    --sp-12: 48px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--gray-50);
+    color: var(--gray-900);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-8) var(--sp-24); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--blue-900) 0%, var(--indigo-700) 50%, var(--blue-700) 100%);
+    padding: var(--sp-24) var(--sp-8);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(0,200,212,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 1200px; margin: 0 auto; }
+  .hero-label {
+    display: inline-block;
+    background: rgba(0,200,212,0.15);
+    border: 1px solid rgba(0,200,212,0.35);
+    color: var(--cyan-300);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--sp-6);
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: var(--sp-3);
+  }
+  .hero h1 span { color: var(--cyan-400); }
+  .hero-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: var(--sp-3);
+  }
+  .hero-meta {
+    display: flex;
+    gap: var(--sp-6);
+    justify-content: center;
+    margin-top: var(--sp-8);
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-meta-item strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+  /* ── SECTION ── */
+  section { margin-top: var(--sp-16); }
+  .section-header { margin-bottom: var(--sp-8); border-bottom: 1px solid var(--gray-200); padding-bottom: var(--sp-4); }
+  .section-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue-500);
+    margin-bottom: var(--sp-2);
+  }
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+  }
+  .section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: var(--sp-1);
+  }
+
+  /* ── TOKEN LABEL ── */
+  .token-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gray-500);
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* ── LOGO SECTION ── */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--sp-4);
+  }
+  .logo-card {
+    border-radius: var(--radius-xl);
+    padding: var(--sp-8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-4);
+    min-height: 200px;
+    border: 1px solid var(--gray-200);
+  }
+  .logo-card.light { background: var(--white); }
+  .logo-card.dark  { background: var(--blue-900); border-color: var(--blue-800); }
+  .logo-card.mid   { background: var(--gray-100); }
+  .logo-card.grad  {
+    background: linear-gradient(135deg, var(--blue-900), var(--indigo-600));
+    border-color: transparent;
+  }
+  .logo-card img { max-width: 160px; max-height: 120px; object-fit: contain; }
+  .logo-card-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-400);
+  }
+  .logo-card.dark .logo-card-label,
+  .logo-card.grad .logo-card-label { color: rgba(255,255,255,0.4); }
+
+  .logo-rule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--sp-4);
+    margin-top: var(--sp-6);
+  }
+  .logo-rule {
+    padding: var(--sp-4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+    background: var(--white);
+  }
+  .logo-rule-title {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .logo-rule.do .logo-rule-title  { color: var(--success-500); }
+  .logo-rule.dont .logo-rule-title { color: var(--error-500); }
+  .logo-rule p { font-size: 12px; color: var(--gray-500); line-height: 1.5; }
+
+  /* ── COLOR SECTION ── */
+  .color-group { margin-bottom: var(--sp-8); }
+  .color-group-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray-500);
+    margin-bottom: var(--sp-3);
+  }
+  .palette-row {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  @media (max-width: 700px) { .palette-row { grid-template-columns: repeat(5, 1fr); } }
+  .swatch {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 6px 4px;
+    cursor: default;
+    transition: transform 0.15s;
+    position: relative;
+  }
+  .swatch:hover { transform: scale(1.05); z-index: 1; border-radius: var(--radius-sm); }
+  .swatch .sw-num {
+    font-size: 9px;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+  .swatch .sw-hex {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    opacity: 0.6;
+    margin-top: 1px;
+  }
+  .swatch.light-text .sw-num,
+  .swatch.light-text .sw-hex { color: rgba(255,255,255,0.9); }
+  .swatch.dark-text .sw-num,
+  .swatch.dark-text .sw-hex  { color: rgba(0,0,0,0.6); }
+
+  /* Semantic colors */
+  .semantic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--sp-3);
+    margin-top: var(--sp-4);
+  }
+  .semantic-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+  }
+  .semantic-top { height: 64px; display: flex; align-items: center; padding: 0 var(--sp-4); gap: var(--sp-3); }
+  .semantic-icon { width: 32px; height: 32px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .semantic-label { font-size: 14px; font-weight: 600; }
+  .semantic-bottom { background: var(--white); padding: var(--sp-3) var(--sp-4); }
+  .semantic-bottom .token-label { font-size: 10px; }
+
+  /* ── TYPOGRAPHY ── */
+  .type-scale { display: flex; flex-direction: column; gap: var(--sp-3); }
+  .type-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: var(--sp-4);
+    align-items: baseline;
+    padding: var(--sp-3) 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .type-meta { text-align: right; }
+  .type-meta .name { font-size: 12px; font-weight: 600; color: var(--gray-700); }
+  .type-meta .spec { font-family: var(--font-mono); font-size: 10px; color: var(--gray-400); margin-top: 2px; }
+  .type-sample { color: var(--gray-900); }
+
+  .font-card {
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--white);
+    margin-top: var(--sp-4);
+  }
+  .font-card-header {
+    background: linear-gradient(135deg, var(--blue-600), var(--indigo-600));
+    padding: var(--sp-8) var(--sp-8) var(--sp-6);
+  }
+  .font-card-header .font-name {
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .font-card-header .font-meta { color: rgba(255,255,255,0.5); font-size: 12px; margin-top: 4px; }
+  .font-card-body { padding: var(--sp-6) var(--sp-8); }
+  .font-weights { display: flex; flex-wrap: wrap; gap: var(--sp-6); }
+  .font-weight-item .w-label { font-size: 11px; color: var(--gray-400); margin-bottom: 2px; font-family: var(--font-mono); }
+  .font-weight-item .w-sample { font-size: 22px; color: var(--gray-800); }
+  .alphabet { margin-top: var(--sp-4); font-size: 18px; color: var(--gray-600); line-height: 1.8; letter-spacing: 0.02em; word-break: break-all; }
+
+  /* ── SPACING ── */
+  .spacing-grid { display: flex; flex-direction: column; gap: var(--sp-2); }
+  .spacing-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: 6px 0;
+  }
+  .sp-token { font-family: var(--font-mono); font-size: 11px; color: var(--blue-600); }
+  .sp-bar-wrap { height: 16px; display: flex; align-items: center; }
+  .sp-bar { height: 12px; background: linear-gradient(90deg, var(--cyan-400), var(--blue-500)); border-radius: 2px; min-width: 2px; }
+  .sp-val { font-family: var(--font-mono); font-size: 11px; color: var(--gray-500); text-align: right; }
+
+  /* ── RADIUS ── */
+  .radius-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--sp-4);
+  }
+  .radius-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    padding: var(--sp-6);
+    text-align: center;
+    border-radius: var(--radius-lg);
+  }
+  .radius-demo {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, var(--blue-500), var(--indigo-500));
+    margin: 0 auto var(--sp-3);
+  }
+  .radius-name { font-size: 12px; font-weight: 600; color: var(--gray-700); }
+  .radius-val  { font-family: var(--font-mono); font-size: 10px; color: var(--gray-400); margin-top: 2px; }
+
+  /* ── SHADOW ── */
+  .shadow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--sp-5);
+  }
+  .shadow-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-6);
+    text-align: center;
+    border: 1px solid var(--gray-100);
+  }
+  .shadow-card .s-name { font-size: 12px; font-weight: 600; color: var(--gray-700); margin-top: var(--sp-3); }
+  .shadow-card .s-token { font-family: var(--font-mono); font-size: 10px; color: var(--gray-400); margin-top: 2px; }
+  .shadow-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--blue-500), var(--cyan-400));
+    border-radius: var(--radius-lg);
+    margin: 0 auto;
+  }
+
+  /* ── COMPONENTS ── */
+  .comp-group { margin-bottom: var(--sp-10); }
+  .comp-group-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: var(--sp-4);
+    padding-bottom: var(--sp-2);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .comp-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .btn-xs  { font-size: 11px; padding: 4px 10px;  border-radius: var(--radius-md); }
+  .btn-sm  { font-size: 12px; padding: 6px 14px;  border-radius: var(--radius-md); }
+  .btn-md  { font-size: 13px; padding: 9px 18px;  border-radius: var(--radius-lg); }
+  .btn-lg  { font-size: 14px; padding: 12px 24px; border-radius: var(--radius-lg); }
+  .btn-xl  { font-size: 15px; padding: 15px 32px; border-radius: var(--radius-xl); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue-600) 0%, var(--indigo-600) 100%);
+    color: white;
+    box-shadow: var(--shadow-brand);
+  }
+  .btn-primary:hover { background: linear-gradient(135deg, var(--blue-700) 0%, var(--indigo-700) 100%); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: var(--blue-50);
+    color: var(--blue-700);
+    border: 1px solid var(--blue-200);
+  }
+  .btn-secondary:hover { background: var(--blue-100); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--gray-600);
+    border: 1px solid var(--gray-200);
+  }
+  .btn-ghost:hover { background: var(--gray-100); }
+
+  .btn-danger {
+    background: var(--error-500);
+    color: white;
+  }
+  .btn-danger:hover { background: #DC2626; }
+
+  .btn-cyan {
+    background: linear-gradient(135deg, var(--cyan-500), var(--blue-500));
+    color: white;
+  }
+
+  .btn-icon { padding: 9px; }
+
+  /* Inputs */
+  .input-wrap { position: relative; display: inline-flex; align-items: center; }
+  .input {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: var(--radius-lg);
+    padding: 9px 14px;
+    outline: none;
+    background: var(--white);
+    color: var(--gray-900);
+    transition: border-color 0.15s, box-shadow 0.15s;
+    width: 220px;
+  }
+  .input::placeholder { color: var(--gray-400); }
+  .input:focus { border-color: var(--blue-500); box-shadow: 0 0 0 3px rgba(34,85,224,0.12); }
+  .input.error { border-color: var(--error-500); }
+  .input.error:focus { box-shadow: 0 0 0 3px rgba(239,68,68,0.12); }
+  .input.success { border-color: var(--success-500); }
+  .input-icon-left { padding-left: 38px; }
+  .input-icon { position: absolute; left: 12px; color: var(--gray-400); font-size: 14px; }
+
+  /* Badges / Tags */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.01em;
+  }
+  .badge-blue     { background: var(--blue-100);   color: var(--blue-700); }
+  .badge-cyan     { background: var(--cyan-100);    color: #007A82; }
+  .badge-indigo   { background: var(--indigo-100);  color: var(--indigo-700); }
+  .badge-success  { background: var(--success-100); color: #065F46; }
+  .badge-warning  { background: var(--warning-100); color: #92400E; }
+  .badge-error    { background: var(--error-100);   color: #991B1B; }
+  .badge-gray     { background: var(--gray-100);    color: var(--gray-700); }
+  .badge-dark     { background: var(--blue-900);    color: rgba(255,255,255,0.85); }
+
+  /* Avatar */
+  .avatar {
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+    color: white;
+    background: linear-gradient(135deg, var(--blue-600), var(--indigo-500));
+    flex-shrink: 0;
+  }
+  .avatar-xs { width: 24px; height: 24px; font-size: 9px; }
+  .avatar-sm { width: 32px; height: 32px; font-size: 11px; }
+  .avatar-md { width: 40px; height: 40px; font-size: 14px; }
+  .avatar-lg { width: 56px; height: 56px; font-size: 18px; }
+  .avatar-xl { width: 72px; height: 72px; font-size: 24px; }
+  .avatar-cyan   { background: linear-gradient(135deg, var(--cyan-400), var(--blue-500)); }
+  .avatar-indigo { background: linear-gradient(135deg, var(--indigo-500), var(--blue-900)); }
+  .avatar-stack  { display: flex; }
+  .avatar-stack .avatar { margin-left: -8px; border: 2px solid white; }
+  .avatar-stack .avatar:first-child { margin-left: 0; }
+
+  /* Card */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-5);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: var(--shadow-md); }
+
+  /* Email Item (app-specific) */
+  .email-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background 0.1s;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .email-item:hover { background: var(--blue-50); }
+  .email-item.unread { background: var(--blue-50); }
+  .email-item.unread .email-sender { color: var(--blue-700); font-weight: 700; }
+  .email-item.active { background: linear-gradient(135deg, rgba(34,85,224,0.08), rgba(80,70,208,0.06)); border-color: var(--blue-200); }
+  .email-content { flex: 1; min-width: 0; }
+  .email-sender { font-size: 13px; font-weight: 600; color: var(--gray-900); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .email-subject { font-size: 12px; color: var(--gray-600); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+  .email-preview { font-size: 11px; color: var(--gray-400); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+  .email-time { font-size: 10px; color: var(--gray-400); white-space: nowrap; flex-shrink: 0; }
+  .unread-dot { width: 6px; height: 6px; background: var(--blue-500); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+
+  /* Toggle */
+  .toggle { position: relative; display: inline-block; width: 40px; height: 22px; cursor: pointer; }
+  .toggle input { opacity: 0; width: 0; height: 0; }
+  .toggle-track {
+    position: absolute; inset: 0;
+    background: var(--gray-300);
+    border-radius: var(--radius-full);
+    transition: background 0.2s;
+  }
+  .toggle input:checked ~ .toggle-track { background: linear-gradient(135deg, var(--blue-500), var(--indigo-500)); }
+  .toggle-thumb {
+    position: absolute;
+    width: 16px; height: 16px;
+    left: 3px; top: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+  .toggle input:checked ~ .toggle-track ~ .toggle-thumb { transform: translateX(18px); }
+
+  /* Progress */
+  .progress { height: 6px; background: var(--gray-200); border-radius: var(--radius-full); overflow: hidden; }
+  .progress-bar { height: 100%; border-radius: var(--radius-full); background: linear-gradient(90deg, var(--cyan-400), var(--blue-500)); }
+
+  /* Notification / Toast */
+  .toast {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius-lg);
+    border-left: 3px solid;
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+    max-width: 320px;
+  }
+  .toast.info    { border-color: var(--blue-500); }
+  .toast.success { border-color: var(--success-500); }
+  .toast.error   { border-color: var(--error-500); }
+  .toast.warning { border-color: var(--warning-500); }
+  .toast-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .toast-title { font-size: 13px; font-weight: 600; color: var(--gray-900); }
+  .toast-body  { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 2px; background: var(--gray-100); padding: 3px; border-radius: var(--radius-lg); }
+  .tab {
+    font-size: 12px; font-weight: 500;
+    padding: 6px 16px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: var(--gray-500);
+    border: none;
+    background: transparent;
+    transition: all 0.15s;
+  }
+  .tab.active {
+    background: var(--white);
+    color: var(--blue-700);
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Chip */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    border: 1.5px solid var(--gray-200);
+    background: var(--white);
+    color: var(--gray-700);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .chip:hover { border-color: var(--blue-300); color: var(--blue-600); background: var(--blue-50); }
+  .chip.active { border-color: var(--blue-500); color: var(--blue-700); background: var(--blue-50); }
+
+  /* Sidebar */
+  .sidebar-demo {
+    background: var(--blue-900);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-4);
+    width: 220px;
+    flex-shrink: 0;
+  }
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: 7px 10px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.1s;
+    margin-bottom: 2px;
+  }
+  .sidebar-item:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); }
+  .sidebar-item.active { background: rgba(255,255,255,0.1); color: white; }
+  .sidebar-item .si-icon { width: 16px; text-align: center; opacity: 0.7; }
+  .sidebar-item.active .si-icon { opacity: 1; }
+  .sidebar-count {
+    margin-left: auto;
+    background: var(--blue-500);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: var(--radius-full);
+  }
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px 14px;
+    margin-bottom: var(--sp-2);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .sidebar-logo .logo-mark {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, var(--cyan-400), var(--indigo-500));
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800; color: white;
+  }
+  .sidebar-logo .logo-text { font-size: 15px; font-weight: 700; color: white; }
+
+  /* App screenshot mockup */
+  .app-mockup {
+    display: flex;
+    background: var(--gray-100);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-xl);
+    min-height: 480px;
+  }
+  .app-sidebar {
+    width: 220px;
+    background: var(--blue-900);
+    padding: var(--sp-4);
+    flex-shrink: 0;
+  }
+  .app-list {
+    width: 280px;
+    background: var(--white);
+    border-right: 1px solid var(--gray-200);
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .app-list-header {
+    padding: var(--sp-4);
+    border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .app-list-title { font-size: 16px; font-weight: 700; color: var(--gray-900); }
+  .app-list-count { font-size: 11px; color: var(--gray-400); }
+  .app-reader { flex: 1; padding: var(--sp-6); background: var(--white); }
+  .app-reader-header { margin-bottom: var(--sp-5); }
+  .reader-subject { font-size: 20px; font-weight: 700; color: var(--gray-900); margin-bottom: var(--sp-3); }
+  .reader-meta { display: flex; align-items: center; gap: var(--sp-3); }
+  .reader-from { font-size: 13px; color: var(--gray-600); }
+  .reader-from strong { color: var(--gray-900); }
+  .reader-body p { font-size: 13px; color: var(--gray-600); line-height: 1.7; margin-bottom: var(--sp-3); }
+
+  /* Motion */
+  .motion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--sp-4);
+  }
+  .motion-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-5);
+    text-align: center;
+  }
+  .motion-demo {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--blue-500), var(--indigo-500));
+    border-radius: var(--radius-lg);
+    margin: 0 auto var(--sp-3);
+    cursor: pointer;
+  }
+  .motion-demo.ease-in    { transition: transform 0.2s cubic-bezier(0.4, 0, 1, 1); }
+  .motion-demo.ease-out   { transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1); }
+  .motion-demo.ease-io    { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .motion-demo.spring     { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .motion-demo:hover      { transform: scale(1.2); }
+  .motion-name { font-size: 13px; font-weight: 600; color: var(--gray-800); }
+  .motion-spec { font-family: var(--font-mono); font-size: 10px; color: var(--gray-400); margin-top: 4px; line-height: 1.5; }
+
+  /* Iconography */
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: var(--sp-2);
+  }
+  .icon-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: var(--sp-3);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .icon-cell:hover { background: var(--blue-50); border-color: var(--blue-200); }
+  .icon-cell .ic { font-size: 20px; }
+  .icon-cell .ic-name { font-size: 9px; color: var(--gray-400); text-align: center; line-height: 1.3; }
+
+  /* Gradient showcase */
+  .gradient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--sp-3);
+  }
+  .grad-card {
+    height: 100px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: flex-end;
+    padding: var(--sp-3);
+    position: relative;
+    overflow: hidden;
+  }
+  .grad-name { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.9); }
+  .grad-val  { font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.55); display: block; margin-top: 1px; }
+
+  /* Divider */
+  hr { border: none; border-top: 1px solid var(--gray-200); margin: var(--sp-6) 0; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
+
+  /* ── GRID UTILITY ── */
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-4); }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+  @media (max-width: 600px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+  /* ── TOC NAV ── */
+  .toc {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-4);
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    width: 180px;
+    display: none;
+  }
+  @media (min-width: 1420px) { .toc { display: block; } }
+  .toc-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-400); margin-bottom: var(--sp-3); }
+  .toc a {
+    display: block;
+    font-size: 12px;
+    color: var(--gray-500);
+    text-decoration: none;
+    padding: 3px 0;
+    border-left: 2px solid transparent;
+    padding-left: 8px;
+    transition: all 0.1s;
+  }
+  .toc a:hover { color: var(--blue-600); border-color: var(--blue-400); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Visual Identity & Design System</div>
+    <h1>Posta <span>Gate</span></h1>
+    <p style="color:rgba(255,255,255,0.5);font-size:14px;margin-top:6px;">Email Client · Design System v1.0</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">🎨 <strong>Colors</strong> · 3 scales + semantics</div>
+      <div class="hero-meta-item">✏️ <strong>Typography</strong> · Inter · 8 steps</div>
+      <div class="hero-meta-item">📐 <strong>Spacing</strong> · 4px base grid</div>
+      <div class="hero-meta-item">🧩 <strong>Components</strong> · Buttons, Inputs, Tags &amp; more</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="toc-title">Contents</div>
+  <a href="#logo">Logo</a>
+  <a href="#colors">Color System</a>
+  <a href="#typography">Typography</a>
+  <a href="#spacing">Spacing</a>
+  <a href="#shape">Shape & Shadow</a>
+  <a href="#components">Components</a>
+  <a href="#app-ui">App UI Patterns</a>
+  <a href="#gradients">Gradients</a>
+  <a href="#motion">Motion</a>
+  <a href="#icons">Iconography</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ LOGO -->
+<section id="logo">
+  <div class="section-header">
+    <span class="section-tag">01 · Identity</span>
+    <h2 class="section-title">Logo System</h2>
+    <p class="section-desc">Two lockups — mark + wordmark (vertical) and mark only (icon). Use the mark alone at sizes below 48px.</p>
+  </div>
+
+  <div class="logo-grid">
+    <div class="logo-card light">
+      <img src="Asset 1@4x.png" alt="Posta Gate vertical lockup on light">
+      <span class="logo-card-label">Primary · Light background</span>
+    </div>
+    <div class="logo-card dark">
+      <img src="Asset 1@4x.png" alt="Posta Gate vertical lockup on dark" style="filter:brightness(1.1);">
+      <span class="logo-card-label">Primary · Dark background</span>
+    </div>
+    <div class="logo-card mid">
+      <img src="Asset 2@4x.png" alt="Posta mark only" style="max-width:90px;">
+      <span class="logo-card-label">Mark only · Neutral</span>
+    </div>
+    <div class="logo-card grad">
+      <img src="Asset 2@4x.png" alt="Posta mark only on gradient" style="max-width:90px;filter:brightness(1.1);">
+      <span class="logo-card-label">Mark only · Brand gradient</span>
+    </div>
+  </div>
+
+  <div class="logo-rule-grid">
+    <div class="logo-rule do">
+      <div class="logo-rule-title">✓ Do — Clear space</div>
+      <p>Maintain minimum clear space equal to the height of the "P" letterform on all sides.</p>
+    </div>
+    <div class="logo-rule do">
+      <div class="logo-rule-title">✓ Do — Approved backgrounds</div>
+      <p>Use on white, light gray, brand navy, or the brand gradient. Never on mid-gray.</p>
+    </div>
+    <div class="logo-rule dont">
+      <div class="logo-rule-title">✗ Don't — Recolor the mark</div>
+      <p>Never recolor, flatten, or replace the gradient in the ribbon mark. It is brand-critical.</p>
+    </div>
+    <div class="logo-rule dont">
+      <div class="logo-rule-title">✗ Don't — Distort or rotate</div>
+      <p>Do not stretch, skew, rotate, add drop shadow, or apply effects to the logo.</p>
+    </div>
+    <div class="logo-rule dont">
+      <div class="logo-rule-title">✗ Don't — Low contrast</div>
+      <p>Never place the full lockup on a busy photo or pattern without a solid backing.</p>
+    </div>
+    <div class="logo-rule do">
+      <div class="logo-rule-title">✓ Do — Min size</div>
+      <p>Wordmark lockup: min 120px wide in digital. Mark only: min 24px. Below 24px use text.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ COLORS -->
+<section id="colors">
+  <div class="section-header">
+    <span class="section-tag">02 · Color</span>
+    <h2 class="section-title">Color System</h2>
+    <p class="section-desc">Three brand scales extracted from the logo ribbon gradient, plus semantic tokens.</p>
+  </div>
+
+  <!-- Cyan -->
+  <div class="color-group">
+    <div class="color-group-title">Cyan — Velocity / Accent</div>
+    <div class="palette-row">
+      <div class="swatch dark-text"  style="background:#EDFCFD"><span class="sw-num">50</span><span class="sw-hex">#EDFCFD</span></div>
+      <div class="swatch dark-text"  style="background:#D0F7FA"><span class="sw-num">100</span><span class="sw-hex">#D0F7FA</span></div>
+      <div class="swatch dark-text"  style="background:#9EEDF2"><span class="sw-num">200</span><span class="sw-hex">#9EEDF2</span></div>
+      <div class="swatch dark-text"  style="background:#5DE4EC"><span class="sw-num">300</span><span class="sw-hex">#5DE4EC</span></div>
+      <div class="swatch dark-text"  style="background:#26D6E0"><span class="sw-num">400</span><span class="sw-hex">#26D6E0</span></div>
+      <div class="swatch light-text" style="background:#00C8D4"><span class="sw-num">500 ★</span><span class="sw-hex">#00C8D4</span></div>
+      <div class="swatch light-text" style="background:#00A5B0"><span class="sw-num">600</span><span class="sw-hex">#00A5B0</span></div>
+      <div class="swatch light-text" style="background:#007A82"><span class="sw-num">700</span><span class="sw-hex">#007A82</span></div>
+      <div class="swatch light-text" style="background:#005259"><span class="sw-num">800</span><span class="sw-hex">#005259</span></div>
+      <div class="swatch light-text" style="background:#002E33"><span class="sw-num">900</span><span class="sw-hex">#002E33</span></div>
+    </div>
+    <span class="token-label">--cyan-{50–900}  ·  Primary accent, CTAs, highlights, unread indicators</span>
+  </div>
+
+  <!-- Blue -->
+  <div class="color-group">
+    <div class="color-group-title">Blue — Primary / Brand</div>
+    <div class="palette-row">
+      <div class="swatch dark-text"  style="background:#EEF4FF"><span class="sw-num">50</span><span class="sw-hex">#EEF4FF</span></div>
+      <div class="swatch dark-text"  style="background:#D8E7FC"><span class="sw-num">100</span><span class="sw-hex">#D8E7FC</span></div>
+      <div class="swatch dark-text"  style="background:#B0C8F8"><span class="sw-num">200</span><span class="sw-hex">#B0C8F8</span></div>
+      <div class="swatch dark-text"  style="background:#7AA0F0"><span class="sw-num">300</span><span class="sw-hex">#7AA0F0</span></div>
+      <div class="swatch dark-text"  style="background:#4A78E8"><span class="sw-num">400</span><span class="sw-hex">#4A78E8</span></div>
+      <div class="swatch light-text" style="background:#2255E0"><span class="sw-num">500</span><span class="sw-hex">#2255E0</span></div>
+      <div class="swatch light-text" style="background:#1A3FD0"><span class="sw-num">600 ★</span><span class="sw-hex">#1A3FD0</span></div>
+      <div class="swatch light-text" style="background:#1630B8"><span class="sw-num">700</span><span class="sw-hex">#1630B8</span></div>
+      <div class="swatch light-text" style="background:#122294"><span class="sw-num">800</span><span class="sw-hex">#122294</span></div>
+      <div class="swatch light-text" style="background:#0B1E6E"><span class="sw-num">900 ★</span><span class="sw-hex">#0B1E6E</span></div>
+    </div>
+    <span class="token-label">--blue-{50–900}  ·  Primary buttons, links, sidebar, wordmark color</span>
+  </div>
+
+  <!-- Indigo -->
+  <div class="color-group">
+    <div class="color-group-title">Indigo — Depth / Gradient end</div>
+    <div class="palette-row">
+      <div class="swatch dark-text"  style="background:#F0EFFC"><span class="sw-num">50</span><span class="sw-hex">#F0EFFC</span></div>
+      <div class="swatch dark-text"  style="background:#E0DEF9"><span class="sw-num">100</span><span class="sw-hex">#E0DEF9</span></div>
+      <div class="swatch dark-text"  style="background:#C4C0F4"><span class="sw-num">200</span><span class="sw-hex">#C4C0F4</span></div>
+      <div class="swatch dark-text"  style="background:#9B96EC"><span class="sw-num">300</span><span class="sw-hex">#9B96EC</span></div>
+      <div class="swatch light-text" style="background:#7168E0"><span class="sw-num">400</span><span class="sw-hex">#7168E0</span></div>
+      <div class="swatch light-text" style="background:#5046D0"><span class="sw-num">500 ★</span><span class="sw-hex">#5046D0</span></div>
+      <div class="swatch light-text" style="background:#4338C0"><span class="sw-num">600</span><span class="sw-hex">#4338C0</span></div>
+      <div class="swatch light-text" style="background:#3328A0"><span class="sw-num">700</span><span class="sw-hex">#3328A0</span></div>
+      <div class="swatch light-text" style="background:#251880"><span class="sw-num">800</span><span class="sw-hex">#251880</span></div>
+      <div class="swatch light-text" style="background:#1A1060"><span class="sw-num">900</span><span class="sw-hex">#1A1060</span></div>
+    </div>
+    <span class="token-label">--indigo-{50–900}  ·  Gradient depth, hover states, dark mode accents</span>
+  </div>
+
+  <!-- Neutral -->
+  <div class="color-group">
+    <div class="color-group-title">Neutral — UI Chrome</div>
+    <div class="palette-row">
+      <div class="swatch dark-text"  style="background:#F9FAFB"><span class="sw-num">50</span><span class="sw-hex">#F9FAFB</span></div>
+      <div class="swatch dark-text"  style="background:#F3F4F6"><span class="sw-num">100</span><span class="sw-hex">#F3F4F6</span></div>
+      <div class="swatch dark-text"  style="background:#E5E7EB"><span class="sw-num">200</span><span class="sw-hex">#E5E7EB</span></div>
+      <div class="swatch dark-text"  style="background:#D1D5DB"><span class="sw-num">300</span><span class="sw-hex">#D1D5DB</span></div>
+      <div class="swatch dark-text"  style="background:#9CA3AF"><span class="sw-num">400</span><span class="sw-hex">#9CA3AF</span></div>
+      <div class="swatch light-text" style="background:#6B7280"><span class="sw-num">500</span><span class="sw-hex">#6B7280</span></div>
+      <div class="swatch light-text" style="background:#4B5563"><span class="sw-num">600</span><span class="sw-hex">#4B5563</span></div>
+      <div class="swatch light-text" style="background:#374151"><span class="sw-num">700</span><span class="sw-hex">#374151</span></div>
+      <div class="swatch light-text" style="background:#1F2937"><span class="sw-num">800</span><span class="sw-hex">#1F2937</span></div>
+      <div class="swatch light-text" style="background:#111827"><span class="sw-num">900</span><span class="sw-hex">#111827</span></div>
+    </div>
+    <span class="token-label">--gray-{50–900}  ·  Text, borders, backgrounds, dividers</span>
+  </div>
+
+  <!-- Semantic -->
+  <h3 style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-500);margin-top:var(--sp-6);">Semantic Tokens</h3>
+  <div class="semantic-grid">
+    <div class="semantic-card">
+      <div class="semantic-top" style="background:var(--info-100)">
+        <div class="semantic-icon" style="background:var(--info-500)">ℹ️</div>
+        <span class="semantic-label" style="color:var(--blue-700)">Info</span>
+      </div>
+      <div class="semantic-bottom">
+        <span class="token-label">--info-500 #3B82F6 · --info-100 #DBEAFE</span>
+      </div>
+    </div>
+    <div class="semantic-card">
+      <div class="semantic-top" style="background:var(--success-100)">
+        <div class="semantic-icon" style="background:var(--success-500)">✓</div>
+        <span class="semantic-label" style="color:#065F46">Success</span>
+      </div>
+      <div class="semantic-bottom">
+        <span class="token-label">--success-500 #10B981 · --success-100 #D1FAE5</span>
+      </div>
+    </div>
+    <div class="semantic-card">
+      <div class="semantic-top" style="background:var(--warning-100)">
+        <div class="semantic-icon" style="background:var(--warning-500)">⚠</div>
+        <span class="semantic-label" style="color:#92400E">Warning</span>
+      </div>
+      <div class="semantic-bottom">
+        <span class="token-label">--warning-500 #F59E0B · --warning-100 #FEF3C7</span>
+      </div>
+    </div>
+    <div class="semantic-card">
+      <div class="semantic-top" style="background:var(--error-100)">
+        <div class="semantic-icon" style="background:var(--error-500)">✕</div>
+        <span class="semantic-label" style="color:#991B1B">Error</span>
+      </div>
+      <div class="semantic-bottom">
+        <span class="token-label">--error-500 #EF4444 · --error-100 #FEE2E2</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ TYPOGRAPHY -->
+<section id="typography">
+  <div class="section-header">
+    <span class="section-tag">03 · Typography</span>
+    <h2 class="section-title">Type System</h2>
+    <p class="section-desc">Inter — geometric, legible at every size. Pairs with JetBrains Mono for code and tokens.</p>
+  </div>
+
+  <div class="font-card">
+    <div class="font-card-header">
+      <div class="font-name">Inter</div>
+      <div class="font-meta">Primary typeface · Variable font · Google Fonts</div>
+    </div>
+    <div class="font-card-body">
+      <div class="font-weights">
+        <div class="font-weight-item">
+          <div class="w-label">300 · Light</div>
+          <div class="w-sample" style="font-weight:300">Inbox Zero</div>
+        </div>
+        <div class="font-weight-item">
+          <div class="w-label">400 · Regular</div>
+          <div class="w-sample" style="font-weight:400">Inbox Zero</div>
+        </div>
+        <div class="font-weight-item">
+          <div class="w-label">500 · Medium</div>
+          <div class="w-sample" style="font-weight:500">Inbox Zero</div>
+        </div>
+        <div class="font-weight-item">
+          <div class="w-label">600 · Semibold</div>
+          <div class="w-sample" style="font-weight:600">Inbox Zero</div>
+        </div>
+        <div class="font-weight-item">
+          <div class="w-label">700 · Bold</div>
+          <div class="w-sample" style="font-weight:700">Inbox Zero</div>
+        </div>
+        <div class="font-weight-item">
+          <div class="w-label">800 · Extrabold</div>
+          <div class="w-sample" style="font-weight:800">Inbox Zero</div>
+        </div>
+      </div>
+      <div class="alphabet">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9 @ . , : ; ! ? # &amp; ( )</div>
+    </div>
+  </div>
+
+  <div style="margin-top:var(--sp-6)">
+    <div class="type-scale">
+      <div class="type-row">
+        <div class="type-meta"><div class="name">Display</div><div class="spec">64px / 700 / -0.04em / 1.1</div></div>
+        <div class="type-sample" style="font-size:64px;font-weight:700;letter-spacing:-0.04em;line-height:1.1;">Email.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="name">H1</div><div class="spec">40px / 700 / -0.03em / 1.2</div></div>
+        <div class="type-sample" style="font-size:40px;font-weight:700;letter-spacing:-0.03em;line-height:1.2;">Your Inbox, Reimagined</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="name">H2</div><div class="spec">28px / 700 / -0.025em / 1.3</div></div>
+        <div class="type-sample" style="font-size:28px;font-weight:700;letter-spacing:-0.025em;line-height:1.3;">Smart email, zero clutter</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="name">H3</div><div class="spec">20px / 600 / -0.02em / 1.4</div></div>
+        <div class="type-sample" style="font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.4;">Priority Inbox</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="name">H4</div><div class="spec">16px / 600 / -0.01em / 1.4</div></div>
+        <div class="type-sample" style="font-size:16px;font-weight:600;letter-spacing:-0.01em;line-height:1.4;">Meeting follow-ups</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="name">Body LG</div><div class="spec">15px / 400 / 0 / 1.65</div></div>
+        <div class="type-sample" style="font-size:15px;font-weight:400;line-height:1.65;">Posta Gate connects all your mailboxes in one fluid interface designed for speed.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="name">Body MD</div><div class="spec">13px / 400 / 0 / 1.6</div></div>
+        <div class="type-sample" style="font-size:13px;font-weight:400;line-height:1.6;">Hi Sarah, just following up on the proposal we discussed last Tuesday. Please let me know if you have any questions.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="name">Caption</div><div class="spec">11px / 500 / 0.01em / 1.5</div></div>
+        <div class="type-sample" style="font-size:11px;font-weight:500;letter-spacing:0.01em;line-height:1.5;">Received · Jun 14, 2026 · 9:41 AM · via Gmail</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><div class="name">Label</div><div class="spec">10px / 700 / 0.1em / 1.4</div></div>
+        <div class="type-sample" style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.4;color:var(--gray-500);">UNREAD · STARRED · PRIORITY</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:var(--sp-6);padding:var(--sp-5);background:var(--gray-900);border-radius:var(--radius-xl);">
+    <div style="font-size:11px;font-weight:600;color:var(--cyan-400);margin-bottom:var(--sp-3);">JETBRAINS MONO · Code &amp; Tokens</div>
+    <div style="font-family:var(--font-mono);font-size:13px;color:var(--gray-300);line-height:1.8;">
+      <span style="color:var(--cyan-400);">--blue-600:</span> <span style="color:#9B96EC;">#1A3FD0</span>;<br>
+      <span style="color:var(--cyan-400);">font-size:</span> <span style="color:#9B96EC;">13px</span>;<br>
+      <span style="color:var(--cyan-400);">border-radius:</span> <span style="color:#9B96EC;">8px</span>;<br>
+      <span style="color:var(--gray-500);">/* JetBrains Mono 400/500 — code blocks, token docs */</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ SPACING -->
+<section id="spacing">
+  <div class="section-header">
+    <span class="section-tag">04 · Spacing</span>
+    <h2 class="section-title">Spacing Scale</h2>
+    <p class="section-desc">4px base unit. All spacing values are multiples of 4. Layouts snap to an 8px grid.</p>
+  </div>
+  <div class="spacing-grid">
+    <div class="spacing-row"><span class="sp-token">--sp-1</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:4px"></div></div><span class="sp-val">4px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-2</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:8px"></div></div><span class="sp-val">8px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-3</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:16px"></div></div><span class="sp-val">12px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-4</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:24px"></div></div><span class="sp-val">16px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-5</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:34px"></div></div><span class="sp-val">20px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-6</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:44px"></div></div><span class="sp-val">24px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-8</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:64px"></div></div><span class="sp-val">32px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-10</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:88px"></div></div><span class="sp-val">40px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-12</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:116px"></div></div><span class="sp-val">48px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-16</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:160px"></div></div><span class="sp-val">64px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-20</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:200px"></div></div><span class="sp-val">80px</span></div>
+    <div class="spacing-row"><span class="sp-token">--sp-24</span><div class="sp-bar-wrap"><div class="sp-bar" style="width:240px"></div></div><span class="sp-val">96px</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ SHAPE & SHADOW -->
+<section id="shape">
+  <div class="section-header">
+    <span class="section-tag">05 · Shape & Shadow</span>
+    <h2 class="section-title">Border Radius & Elevation</h2>
+    <p class="section-desc">Rounded corners reinforce a friendly, modern email experience. Elevation communicates hierarchy.</p>
+  </div>
+
+  <div class="radius-grid">
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-sm)"></div><div class="radius-name">sm</div><div class="radius-val">--radius-sm · 4px</div></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-md)"></div><div class="radius-name">md</div><div class="radius-val">--radius-md · 8px</div></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-lg)"></div><div class="radius-name">lg</div><div class="radius-val">--radius-lg · 12px</div></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-xl)"></div><div class="radius-name">xl</div><div class="radius-val">--radius-xl · 16px</div></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-2xl)"></div><div class="radius-name">2xl</div><div class="radius-val">--radius-2xl · 24px</div></div>
+    <div class="radius-card"><div class="radius-demo" style="border-radius:var(--radius-full)"></div><div class="radius-name">full</div><div class="radius-val">--radius-full · 9999px</div></div>
+  </div>
+
+  <div class="shadow-grid" style="margin-top:var(--sp-6);">
+    <div class="shadow-card" style="box-shadow:none;border:1px solid var(--gray-200);">
+      <div class="shadow-icon" style="box-shadow:none;border:1px solid var(--gray-200)"></div>
+      <div class="s-name">None</div><div class="s-token">box-shadow: none</div>
+    </div>
+    <div class="shadow-card" style="box-shadow:0 1px 2px rgba(11,30,110,0.06)">
+      <div class="shadow-icon" style="box-shadow:0 1px 2px rgba(11,30,110,0.06)"></div>
+      <div class="s-name">xs</div><div class="s-token">--shadow-xs</div>
+    </div>
+    <div class="shadow-card" style="box-shadow:var(--shadow-sm)">
+      <div class="shadow-icon" style="box-shadow:var(--shadow-sm)"></div>
+      <div class="s-name">sm</div><div class="s-token">--shadow-sm</div>
+    </div>
+    <div class="shadow-card" style="box-shadow:var(--shadow-md)">
+      <div class="shadow-icon" style="box-shadow:var(--shadow-md)"></div>
+      <div class="s-name">md</div><div class="s-token">--shadow-md</div>
+    </div>
+    <div class="shadow-card" style="box-shadow:var(--shadow-lg)">
+      <div class="shadow-icon" style="box-shadow:var(--shadow-lg)"></div>
+      <div class="s-name">lg</div><div class="s-token">--shadow-lg</div>
+    </div>
+    <div class="shadow-card" style="box-shadow:var(--shadow-brand)">
+      <div class="shadow-icon" style="box-shadow:var(--shadow-brand)"></div>
+      <div class="s-name">brand</div><div class="s-token">--shadow-brand</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ COMPONENTS -->
+<section id="components">
+  <div class="section-header">
+    <span class="section-tag">06 · Components</span>
+    <h2 class="section-title">Component Library</h2>
+    <p class="section-desc">Core UI atoms and molecules. All components use the token system defined above.</p>
+  </div>
+
+  <!-- Buttons -->
+  <div class="comp-group">
+    <div class="comp-group-label">Buttons — Variants</div>
+    <div class="comp-row">
+      <button class="btn btn-md btn-primary">Send Email</button>
+      <button class="btn btn-md btn-secondary">Reply</button>
+      <button class="btn btn-md btn-ghost">Archive</button>
+      <button class="btn btn-md btn-danger">Delete</button>
+      <button class="btn btn-md btn-cyan">New Message</button>
+    </div>
+  </div>
+
+  <div class="comp-group">
+    <div class="comp-group-label">Buttons — Sizes</div>
+    <div class="comp-row" style="align-items:center">
+      <button class="btn btn-xs btn-primary">XS · Send</button>
+      <button class="btn btn-sm btn-primary">SM · Send</button>
+      <button class="btn btn-md btn-primary">MD · Send</button>
+      <button class="btn btn-lg btn-primary">LG · Send Email</button>
+      <button class="btn btn-xl btn-primary">XL · Compose New</button>
+    </div>
+  </div>
+
+  <div class="comp-group">
+    <div class="comp-group-label">Buttons — With Icons</div>
+    <div class="comp-row">
+      <button class="btn btn-md btn-primary">✉ Compose</button>
+      <button class="btn btn-md btn-secondary">↩ Reply All</button>
+      <button class="btn btn-md btn-ghost">⭐ Star</button>
+      <button class="btn btn-md btn-icon btn-ghost">🔍</button>
+      <button class="btn btn-md btn-icon btn-ghost">⚙</button>
+      <button class="btn btn-md btn-icon btn-primary">✕</button>
+    </div>
+  </div>
+
+  <!-- Inputs -->
+  <div class="comp-group">
+    <div class="comp-group-label">Inputs</div>
+    <div class="comp-row" style="flex-wrap:wrap;gap:var(--sp-4);">
+      <div>
+        <input class="input" placeholder="Search emails…" type="text">
+        <span class="token-label">Default</span>
+      </div>
+      <div class="input-wrap">
+        <span class="input-icon">🔍</span>
+        <input class="input input-icon-left" placeholder="Search emails…" type="text">
+        <span class="token-label" style="display:block;margin-top:4px;">With leading icon</span>
+      </div>
+      <div>
+        <input class="input" value="sarah@company.com" type="email">
+        <span class="token-label">Filled</span>
+      </div>
+      <div>
+        <input class="input error" value="invalid-email" type="email">
+        <span class="token-label" style="color:var(--error-500);">Error state</span>
+      </div>
+      <div>
+        <input class="input success" value="atef@posta.app" type="email">
+        <span class="token-label" style="color:var(--success-500);">Valid state</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Badges -->
+  <div class="comp-group">
+    <div class="comp-group-label">Badges & Tags</div>
+    <div class="comp-row">
+      <span class="badge badge-blue">Primary</span>
+      <span class="badge badge-cyan">New</span>
+      <span class="badge badge-indigo">Beta</span>
+      <span class="badge badge-success">Delivered</span>
+      <span class="badge badge-warning">Pending</span>
+      <span class="badge badge-error">Bounced</span>
+      <span class="badge badge-gray">Archived</span>
+      <span class="badge badge-dark">Pro</span>
+    </div>
+    <div class="comp-row" style="margin-top:var(--sp-3)">
+      <span class="chip">📥 Inbox</span>
+      <span class="chip active">⭐ Starred</span>
+      <span class="chip">📤 Sent</span>
+      <span class="chip">📁 Work</span>
+      <span class="chip">🗑 Trash</span>
+    </div>
+  </div>
+
+  <!-- Avatars -->
+  <div class="comp-group">
+    <div class="comp-group-label">Avatars</div>
+    <div class="comp-row" style="align-items:center;gap:var(--sp-4);">
+      <div style="text-align:center"><div class="avatar avatar-xs">A</div><span class="token-label">xs · 24</span></div>
+      <div style="text-align:center"><div class="avatar avatar-sm">JD</div><span class="token-label">sm · 32</span></div>
+      <div style="text-align:center"><div class="avatar avatar-md">AT</div><span class="token-label">md · 40</span></div>
+      <div style="text-align:center"><div class="avatar avatar-lg avatar-cyan">SM</div><span class="token-label">lg · 56</span></div>
+      <div style="text-align:center"><div class="avatar avatar-xl avatar-indigo">PG</div><span class="token-label">xl · 72</span></div>
+      <div style="text-align:center">
+        <div class="avatar-stack">
+          <div class="avatar avatar-md">AT</div>
+          <div class="avatar avatar-md avatar-cyan">JD</div>
+          <div class="avatar avatar-md avatar-indigo">SM</div>
+          <div class="avatar avatar-md" style="background:var(--gray-400);font-size:10px">+4</div>
+        </div>
+        <span class="token-label">Stack</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toggle & Progress -->
+  <div class="comp-group">
+    <div class="comp-group-label">Controls</div>
+    <div class="comp-row" style="gap:var(--sp-8);align-items:flex-start;flex-wrap:wrap;">
+      <div>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-3);">
+          <div style="display:flex;align-items:center;gap:var(--sp-3);">
+            <label class="toggle"><input type="checkbox" checked><div class="toggle-track"></div><div class="toggle-thumb"></div></label>
+            <span style="font-size:13px;color:var(--gray-700);">Notifications On</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:var(--sp-3);">
+            <label class="toggle"><input type="checkbox"><div class="toggle-track"></div><div class="toggle-thumb"></div></label>
+            <span style="font-size:13px;color:var(--gray-400);">Smart Reply Off</span>
+          </div>
+        </div>
+        <span class="token-label">Toggle</span>
+      </div>
+      <div style="width:240px;">
+        <div style="font-size:12px;color:var(--gray-600);margin-bottom:6px;font-weight:500;">Sync Progress · 68%</div>
+        <div class="progress"><div class="progress-bar" style="width:68%"></div></div>
+        <div style="margin-top:var(--sp-3);font-size:12px;color:var(--gray-600);font-weight:500;">Storage · 38%</div>
+        <div class="progress" style="margin-top:6px;"><div class="progress-bar" style="width:38%;background:linear-gradient(90deg,var(--cyan-400),var(--blue-500))"></div></div>
+        <span class="token-label">Progress bar</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="comp-group">
+    <div class="comp-group-label">Tabs</div>
+    <div class="tabs" style="width:fit-content;">
+      <button class="tab active">All</button>
+      <button class="tab">Unread</button>
+      <button class="tab">Starred</button>
+      <button class="tab">Attachments</button>
+    </div>
+  </div>
+
+  <!-- Toasts -->
+  <div class="comp-group">
+    <div class="comp-group-label">Toast Notifications</div>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--sp-3);">
+      <div class="toast info">
+        <span class="toast-icon">💬</span>
+        <div><div class="toast-title">3 new emails in Inbox</div><div class="toast-body">From: Sarah, Marcus, Lena</div></div>
+      </div>
+      <div class="toast success">
+        <span class="toast-icon">✓</span>
+        <div><div class="toast-title">Message sent</div><div class="toast-body">To sarah@company.com</div></div>
+      </div>
+      <div class="toast error">
+        <span class="toast-icon">✕</span>
+        <div><div class="toast-title">Delivery failed</div><div class="toast-body">Retry or check address</div></div>
+      </div>
+      <div class="toast warning">
+        <span class="toast-icon">⚠</span>
+        <div><div class="toast-title">Large attachment</div><div class="toast-body">File exceeds 25 MB limit</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card -->
+  <div class="comp-group">
+    <div class="comp-group-label">Cards</div>
+    <div class="grid-3">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-3);">
+          <div class="avatar avatar-md">JD</div>
+          <div><div style="font-size:13px;font-weight:600">John Doe</div><div style="font-size:11px;color:var(--gray-400)">john@company.com</div></div>
+        </div>
+        <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:4px;">Q2 Budget Review</div>
+        <div style="font-size:12px;color:var(--gray-500);line-height:1.5;">Hi, please find attached the Q2 budget review document for your approval…</div>
+        <div style="display:flex;gap:var(--sp-2);margin-top:var(--sp-3);">
+          <span class="badge badge-blue">Finance</span>
+          <span class="badge badge-warning">Action needed</span>
+        </div>
+      </div>
+      <div class="card" style="border-color:var(--blue-200);background:var(--blue-50);">
+        <div style="font-size:11px;font-weight:700;color:var(--blue-600);letter-spacing:.08em;text-transform:uppercase;margin-bottom:var(--sp-2);">Unread Thread</div>
+        <div style="font-size:13px;font-weight:700;color:var(--blue-900);margin-bottom:4px;">Re: Product Launch Timeline</div>
+        <div style="font-size:12px;color:var(--blue-600);">5 messages · Last reply 2h ago</div>
+        <div class="progress" style="margin-top:var(--sp-3);"><div class="progress-bar" style="width:80%"></div></div>
+      </div>
+      <div class="card" style="background:linear-gradient(135deg,var(--blue-900),var(--indigo-700));border-color:transparent;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:var(--sp-2);">PRO PLAN</div>
+        <div style="font-size:20px;font-weight:800;color:white;margin-bottom:4px;">Posta Gate Pro</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Unlimited accounts, AI smart replies, priority sync.</div>
+        <button class="btn btn-sm btn-cyan" style="margin-top:var(--sp-4);">Upgrade Now</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ APP UI -->
+<section id="app-ui">
+  <div class="section-header">
+    <span class="section-tag">07 · App UI Patterns</span>
+    <h2 class="section-title">Email App Interface</h2>
+    <p class="section-desc">Application-specific patterns: sidebar nav, email list, and reader pane.</p>
+  </div>
+
+  <div class="app-mockup">
+    <!-- Sidebar -->
+    <div class="app-sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-mark">P</div>
+        <div class="logo-text">Posta</div>
+      </div>
+      <div class="sidebar-item">
+        <span class="si-icon">✉</span> Inbox
+        <span class="sidebar-count">12</span>
+      </div>
+      <div class="sidebar-item active">
+        <span class="si-icon">⭐</span> Starred
+      </div>
+      <div class="sidebar-item">
+        <span class="si-icon">📤</span> Sent
+      </div>
+      <div class="sidebar-item">
+        <span class="si-icon">📝</span> Drafts
+        <span class="sidebar-count" style="background:var(--indigo-500)">3</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="si-icon">🗂</span> All Mail
+      </div>
+      <div style="margin-top:var(--sp-4);padding-top:var(--sp-3);border-top:1px solid rgba(255,255,255,0.06);">
+        <div style="font-size:9px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,0.25);margin-bottom:var(--sp-2);padding-left:10px;">LABELS</div>
+        <div class="sidebar-item"><span style="width:6px;height:6px;background:var(--cyan-400);border-radius:50%;flex-shrink:0;"></span> Work</div>
+        <div class="sidebar-item"><span style="width:6px;height:6px;background:var(--success-500);border-radius:50%;flex-shrink:0;"></span> Personal</div>
+        <div class="sidebar-item"><span style="width:6px;height:6px;background:var(--warning-500);border-radius:50%;flex-shrink:0;"></span> Finance</div>
+      </div>
+      <div style="margin-top:auto;padding-top:var(--sp-4);">
+        <div class="sidebar-item"><span class="si-icon">⚙</span> Settings</div>
+      </div>
+    </div>
+
+    <!-- Email List -->
+    <div class="app-list">
+      <div class="app-list-header">
+        <span class="app-list-title">Starred</span>
+        <span class="app-list-count">4 emails</span>
+      </div>
+      <div class="email-item unread">
+        <div class="unread-dot"></div>
+        <div class="avatar avatar-sm" style="flex-shrink:0">SD</div>
+        <div class="email-content">
+          <div class="email-sender">Sarah Doe</div>
+          <div class="email-subject">Q2 Budget Review — Final</div>
+          <div class="email-preview">Please find the final version attached…</div>
+        </div>
+        <div class="email-time">9:41</div>
+      </div>
+      <div class="email-item active">
+        <div style="width:6px;flex-shrink:0"></div>
+        <div class="avatar avatar-sm avatar-cyan" style="flex-shrink:0">MK</div>
+        <div class="email-content">
+          <div class="email-sender" style="font-weight:600">Marcus Klein</div>
+          <div class="email-subject" style="font-weight:500;color:var(--gray-800)">Re: Product Launch</div>
+          <div class="email-preview">The timeline looks good to me, let's…</div>
+        </div>
+        <div class="email-time">8:15</div>
+      </div>
+      <div class="email-item">
+        <div style="width:6px;flex-shrink:0"></div>
+        <div class="avatar avatar-sm avatar-indigo" style="flex-shrink:0">LN</div>
+        <div class="email-content">
+          <div class="email-sender">Lena Novak</div>
+          <div class="email-subject">Design System Review</div>
+          <div class="email-preview">Sharing the Figma link for the updated…</div>
+        </div>
+        <div class="email-time">Yesterday</div>
+      </div>
+      <div class="email-item">
+        <div style="width:6px;flex-shrink:0"></div>
+        <div class="avatar avatar-sm" style="flex-shrink:0;background:var(--gray-400)">TW</div>
+        <div class="email-content">
+          <div class="email-sender">Tom Wilson</div>
+          <div class="email-subject">Invoice #INV-2026-042</div>
+          <div class="email-preview">Please process the attached invoice…</div>
+        </div>
+        <div class="email-time">Jun 12</div>
+      </div>
+    </div>
+
+    <!-- Reader Pane -->
+    <div class="app-reader">
+      <div class="app-reader-header">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:var(--sp-4);">
+          <div class="reader-subject">Re: Product Launch Timeline</div>
+          <div style="display:flex;gap:var(--sp-2);">
+            <button class="btn btn-sm btn-ghost btn-icon">↩</button>
+            <button class="btn btn-sm btn-ghost btn-icon">⭐</button>
+            <button class="btn btn-sm btn-ghost btn-icon">⋯</button>
+          </div>
+        </div>
+        <div class="reader-meta">
+          <div class="avatar avatar-sm avatar-cyan">MK</div>
+          <div>
+            <div class="reader-from"><strong>Marcus Klein</strong> <span style="color:var(--gray-400);">&lt;marcus@company.com&gt;</span></div>
+            <div style="font-size:11px;color:var(--gray-400);">To: me · Jun 14, 2026 · 8:15 AM</div>
+          </div>
+          <div style="margin-left:auto;display:flex;gap:var(--sp-2);">
+            <span class="badge badge-blue">Work</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="reader-body" style="margin-top:var(--sp-4);">
+        <p>Hey Atef,</p>
+        <p>The timeline looks good to me. I think we can hit the June 28 launch date if we lock the design assets by end of this week.</p>
+        <p>One thing — can we push the beta testing window to June 19–24 instead of 18–23? The team has a conflict on the 18th.</p>
+        <p>Let me know and I'll update the project board accordingly.</p>
+        <p style="margin-top:var(--sp-5);">Best,<br><strong>Marcus</strong></p>
+      </div>
+      <div style="margin-top:var(--sp-6);display:flex;gap:var(--sp-2);">
+        <button class="btn btn-md btn-primary">↩ Reply</button>
+        <button class="btn btn-md btn-secondary">↩↩ Reply All</button>
+        <button class="btn btn-md btn-ghost">→ Forward</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ GRADIENTS -->
+<section id="gradients">
+  <div class="section-header">
+    <span class="section-tag">08 · Gradients</span>
+    <h2 class="section-title">Brand Gradients</h2>
+    <p class="section-desc">Derived from the logo ribbon. Use for hero surfaces, CTAs, and featured states — not for body backgrounds.</p>
+  </div>
+  <div class="gradient-grid">
+    <div class="grad-card" style="background:linear-gradient(135deg,#00C8D4,#2255E0)">
+      <div><span class="grad-name">Horizon</span><span class="grad-val">Cyan → Blue · 135°</span></div>
+    </div>
+    <div class="grad-card" style="background:linear-gradient(135deg,#2255E0,#5046D0)">
+      <div><span class="grad-name">Deep Ocean</span><span class="grad-val">Blue → Indigo · 135°</span></div>
+    </div>
+    <div class="grad-card" style="background:linear-gradient(135deg,#0B1E6E,#5046D0)">
+      <div><span class="grad-name">Midnight</span><span class="grad-val">Navy → Indigo · 135°</span></div>
+    </div>
+    <div class="grad-card" style="background:linear-gradient(135deg,#00C8D4,#5046D0)">
+      <div><span class="grad-name">Full Spectrum</span><span class="grad-val">Cyan → Indigo · 135°</span></div>
+    </div>
+    <div class="grad-card" style="background:linear-gradient(180deg,#0B1E6E 0%,#1630B8 50%,#5046D0 100%)">
+      <div><span class="grad-name">Depth</span><span class="grad-val">Navy → Purple · 180°</span></div>
+    </div>
+    <div class="grad-card" style="background:linear-gradient(135deg,#122294,#00C8D4 80%,#26D6E0)">
+      <div><span class="grad-name">Aurora</span><span class="grad-val">Navy → Cyan · 135°</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ MOTION -->
+<section id="motion">
+  <div class="section-header">
+    <span class="section-tag">09 · Motion</span>
+    <h2 class="section-title">Motion Principles</h2>
+    <p class="section-desc">Hover each card to preview the easing curve. Motion should feel responsive, never decorative.</p>
+  </div>
+  <div class="motion-grid">
+    <div class="motion-card">
+      <div class="motion-demo ease-out"></div>
+      <div class="motion-name">Ease Out</div>
+      <div class="motion-spec">cubic-bezier(0,0,0.2,1)<br>Duration: 200–250ms<br>Use: Entrances, reveals</div>
+    </div>
+    <div class="motion-card">
+      <div class="motion-demo ease-in"></div>
+      <div class="motion-name">Ease In</div>
+      <div class="motion-spec">cubic-bezier(0.4,0,1,1)<br>Duration: 150–200ms<br>Use: Exits, dismissals</div>
+    </div>
+    <div class="motion-card">
+      <div class="motion-demo ease-io"></div>
+      <div class="motion-name">Ease In-Out</div>
+      <div class="motion-spec">cubic-bezier(0.4,0,0.2,1)<br>Duration: 300ms<br>Use: Transitions, panels</div>
+    </div>
+    <div class="motion-card">
+      <div class="motion-demo spring"></div>
+      <div class="motion-name">Spring</div>
+      <div class="motion-spec">cubic-bezier(0.34,1.56,0.64,1)<br>Duration: 350–450ms<br>Use: Buttons, badges, micro</div>
+    </div>
+  </div>
+
+  <div style="margin-top:var(--sp-6);background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-xl);padding:var(--sp-5);">
+    <div class="comp-group-label" style="margin-bottom:var(--sp-4);">Duration Scale</div>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--sp-6);">
+      <div><span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--blue-700);">75ms</span><div style="font-size:12px;color:var(--gray-500);margin-top:2px;">Instant · hover state</div></div>
+      <div><span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--blue-700);">150ms</span><div style="font-size:12px;color:var(--gray-500);margin-top:2px;">Fast · button press</div></div>
+      <div><span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--blue-700);">200ms</span><div style="font-size:12px;color:var(--gray-500);margin-top:2px;">Default · tooltip, badge</div></div>
+      <div><span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--blue-700);">300ms</span><div style="font-size:12px;color:var(--gray-500);margin-top:2px;">Medium · panel slide</div></div>
+      <div><span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--blue-700);">450ms</span><div style="font-size:12px;color:var(--gray-500);margin-top:2px;">Slow · page transition</div></div>
+      <div><span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--gray-400);">Never</span><div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Over 600ms in UI</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ ICONS -->
+<section id="icons">
+  <div class="section-header">
+    <span class="section-tag">10 · Iconography</span>
+    <h2 class="section-title">Icon System</h2>
+    <p class="section-desc">Use Phosphor Icons (Regular weight) as the system icon set. 20px touch target minimum. Stroke width: 1.5px.</p>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-cell"><span class="ic">✉️</span><span class="ic-name">inbox</span></div>
+    <div class="icon-cell"><span class="ic">📤</span><span class="ic-name">sent</span></div>
+    <div class="icon-cell"><span class="ic">📝</span><span class="ic-name">drafts</span></div>
+    <div class="icon-cell"><span class="ic">⭐</span><span class="ic-name">starred</span></div>
+    <div class="icon-cell"><span class="ic">🗑</span><span class="ic-name">trash</span></div>
+    <div class="icon-cell"><span class="ic">📎</span><span class="ic-name">attach</span></div>
+    <div class="icon-cell"><span class="ic">↩</span><span class="ic-name">reply</span></div>
+    <div class="icon-cell"><span class="ic">→</span><span class="ic-name">forward</span></div>
+    <div class="icon-cell"><span class="ic">🔍</span><span class="ic-name">search</span></div>
+    <div class="icon-cell"><span class="ic">⚙</span><span class="ic-name">settings</span></div>
+    <div class="icon-cell"><span class="ic">🔔</span><span class="ic-name">notify</span></div>
+    <div class="icon-cell"><span class="ic">🏷</span><span class="ic-name">label</span></div>
+    <div class="icon-cell"><span class="ic">📁</span><span class="ic-name">folder</span></div>
+    <div class="icon-cell"><span class="ic">🔒</span><span class="ic-name">secure</span></div>
+    <div class="icon-cell"><span class="ic">✓</span><span class="ic-name">read</span></div>
+    <div class="icon-cell"><span class="ic">⋯</span><span class="ic-name">more</span></div>
+    <div class="icon-cell"><span class="ic">✕</span><span class="ic-name">close</span></div>
+    <div class="icon-cell"><span class="ic">+</span><span class="ic-name">compose</span></div>
+    <div class="icon-cell"><span class="ic">👤</span><span class="ic-name">contact</span></div>
+    <div class="icon-cell"><span class="ic">🗂</span><span class="ic-name">archive</span></div>
+  </div>
+  <div style="margin-top:var(--sp-4);padding:var(--sp-4);background:var(--blue-50);border-radius:var(--radius-lg);border:1px solid var(--blue-100);">
+    <span style="font-size:12px;color:var(--blue-700);">📦 <strong>Recommended:</strong> <a href="https://phosphoricons.com" style="color:var(--blue-600);">Phosphor Icons</a> — Regular weight, 24px default, scale to 16/20/24/32px. Pairs visually with Inter's geometry.</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<div style="margin-top:var(--sp-20);padding:var(--sp-8);background:var(--blue-900);border-radius:var(--radius-2xl);text-align:center;">
+  <div style="display:flex;align-items:center;justify-content:center;gap:var(--sp-3);margin-bottom:var(--sp-4);">
+    <div style="width:36px;height:36px;background:linear-gradient(135deg,var(--cyan-400),var(--indigo-500));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:white;">P</div>
+    <span style="font-size:20px;font-weight:800;color:white;letter-spacing:-0.02em;">Posta Gate</span>
+  </div>
+  <p style="font-size:12px;color:rgba(255,255,255,0.35);">Visual Identity & Design System · v1.0 · 2026</p>
+  <p style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:4px;">Colors · Typography · Spacing · Radius · Shadow · Components · Motion · Iconography</p>
+</div>
+
+</div><!-- /page -->
+</body>
+</html>

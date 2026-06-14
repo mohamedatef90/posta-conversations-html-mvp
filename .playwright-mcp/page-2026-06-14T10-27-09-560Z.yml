@@ -1,0 +1,137 @@
+- generic [ref=e505]:
+  - banner [ref=e506]:
+    - generic [ref=e507]:
+      - generic [ref=e508]: P
+      - generic [ref=e509]: Posta Mail
+    - button "▶ Start demo" [ref=e510] [cursor=pointer]:
+      - generic [ref=e511]: ▶
+      - text: Start demo
+    - button "Presenter" [ref=e512] [cursor=pointer]
+    - generic [ref=e513]:
+      - button "Classic" [ref=e514] [cursor=pointer]
+      - button "Chat" [ref=e515] [cursor=pointer]
+    - button "Search mail, people, attachments /" [ref=e516] [cursor=pointer]:
+      - generic [ref=e517]: Search mail, people, attachments
+      - strong [ref=e518]: /
+    - button "◌" [ref=e519] [cursor=pointer]
+    - button "●" [ref=e520] [cursor=pointer]
+    - button "⚙" [ref=e521] [cursor=pointer]
+    - generic [ref=e522]: OH
+  - main [ref=e523]:
+    - generic [ref=e524]:
+      - complementary [ref=e525]:
+        - generic [ref=e526]: Conversations
+        - heading "People-first inbox" [level=2] [ref=e527]
+        - article [ref=e528] [cursor=pointer]:
+          - generic [ref=e530]: SN
+          - generic [ref=e532]:
+            - generic [ref=e533]:
+              - strong [ref=e534]: Sara Nabil
+              - generic [ref=e535]: 09:42
+            - generic [ref=e536]: Proposal review before Thursday demo
+            - generic [ref=e537]: Can we make the classic screen feel premium enough for executives?
+        - article [ref=e538] [cursor=pointer]:
+          - generic [ref=e540]: YS
+          - generic [ref=e542]:
+            - generic [ref=e543]:
+              - strong [ref=e544]: Youssef Samir
+              - generic [ref=e545]: 08:15
+            - generic [ref=e546]: Invoice batch needs approval
+            - generic [ref=e547]: The Q2 vendor batch is ready, but two invoices need a second look.
+        - article [ref=e548] [cursor=pointer]:
+          - generic [ref=e550]: MA
+          - generic [ref=e552]:
+            - generic [ref=e553]:
+              - strong [ref=e554]: Mariam Adel
+              - generic [ref=e555]: Mon
+            - generic [ref=e556]: Updated remote work policy
+            - generic [ref=e557]: Please review the updated policy before we publish it company-wide.
+        - article [ref=e558] [cursor=pointer]:
+          - generic [ref=e560]: SD
+          - generic [ref=e562]:
+            - generic [ref=e563]:
+              - strong [ref=e564]: Support Desk
+              - generic [ref=e565]: 07:58
+            - generic [ref=e566]: "Escalation: shared mailbox delivery delay"
+            - generic [ref=e567]: Several customers reported delayed responses from support@.
+        - article [ref=e568] [cursor=pointer]:
+          - generic [ref=e570]: LM
+          - generic [ref=e572]:
+            - generic [ref=e573]:
+              - strong [ref=e574]: Lina Morgan
+              - generic [ref=e575]: Tue
+            - generic [ref=e576]: "Northstar onboarding: DNS + mailbox migration"
+            - generic [ref=e577]: We are ready for the migration window. Please confirm DNS cutover timing.
+      - generic [ref=e578]:
+        - generic [ref=e579]:
+          - generic [ref=e580]:
+            - strong [ref=e581]: Sara Nabil
+            - generic [ref=e582]: Proposal review before Thursday demo
+          - generic [ref=e583]:
+            - button "Open in Classic" [ref=e584] [cursor=pointer]
+            - button "Mute" [ref=e585] [cursor=pointer]
+        - generic [ref=e586]:
+          - generic [ref=e587]:
+            - generic [ref=e588]: "Yesterday 16:18 · To: Omar · CC: Product"
+            - text: "I pulled the stakeholder questions into one doc. The biggest ask is confidence: they want the classic mode to feel familiar but not like a cheap OWA clone."
+          - generic [ref=e589]:
+            - generic [ref=e590]: "Yesterday 17:02 · To: Sara"
+            - text: Agreed. We should treat Classic as the trust anchor and Chat as the innovation layer. Same mailbox, different pace.
+          - generic [ref=e591]:
+            - generic [ref=e592]: "Today 09:42 · To: Omar"
+            - text: Exactly. Can we make the classic screen feel premium enough for executives? I want the reading pane to look like a cockpit, not a webmail table.
+            - generic [ref=e593] [cursor=pointer]: ▧ posta-demo-outline.pdf
+        - generic [ref=e594]:
+          - generic [ref=e595]:
+            - generic [ref=e596]:
+              - generic [ref=e597]: 
+              - text: Also to
+            - generic "youssef.samir@worldposta.local" [ref=e598]:
+              - generic [ref=e599]: YS
+              - generic [ref=e600]: Youssef Samir
+              - button "Remove Youssef Samir" [ref=e601] [cursor=pointer]:
+                - generic [ref=e602]: 
+            - generic "partner@northstar.example" [ref=e603]:
+              - generic [ref=e604]: P
+              - generic [ref=e605]: Partner
+              - button "Remove Partner" [ref=e606] [cursor=pointer]:
+                - generic [ref=e607]: 
+          - dialog "Add recipient" [ref=e608]:
+            - generic [ref=e609]:
+              - generic [ref=e610]:
+                - generic [ref=e611]: "@"
+                - text: Mention a recipient
+              - button "Close" [ref=e612] [cursor=pointer]:
+                - generic [ref=e613]: 
+            - generic [ref=e614]:
+              - button "MA Mariam Adel mariam.adel@worldposta.local +" [ref=e615] [cursor=pointer]:
+                - generic [ref=e616]: MA
+                - generic [ref=e617]:
+                  - strong [ref=e618]: Mariam Adel
+                  - generic [ref=e619]: mariam.adel@worldposta.local
+                - generic [ref=e620]: +
+              - button "SD Support Desk support@worldposta.local +" [ref=e621] [cursor=pointer]:
+                - generic [ref=e622]: SD
+                - generic [ref=e623]:
+                  - strong [ref=e624]: Support Desk
+                  - generic [ref=e625]: support@worldposta.local
+                - generic [ref=e626]: +
+              - button "LM Lina Morgan lina@northstar.example +" [ref=e627] [cursor=pointer]:
+                - generic [ref=e628]: LM
+                - generic [ref=e629]:
+                  - strong [ref=e630]: Lina Morgan
+                  - generic [ref=e631]: lina@northstar.example
+                - generic [ref=e632]: +
+            - generic [ref=e633]:
+              - generic [ref=e634]: Add personal or external email
+              - generic [ref=e635]:
+                - generic [ref=e636]: 
+                - textbox "Add personal or external email" [ref=e637]:
+                  - /placeholder: name@example.com
+                - button "Add" [ref=e638] [cursor=pointer]
+          - generic [ref=e639]:
+            - button "Mention another recipient" [expanded] [ref=e640] [cursor=pointer]:
+              - generic [ref=e641]: "@"
+            - textbox "Reply to Sara Nabil…" [ref=e642]
+            - button "Send" [ref=e643] [cursor=pointer]
+            - button "Expand" [ref=e644] [cursor=pointer]

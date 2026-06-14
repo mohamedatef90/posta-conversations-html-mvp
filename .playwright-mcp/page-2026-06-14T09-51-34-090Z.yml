@@ -1,0 +1,180 @@
+- generic [ref=e195]:
+  - banner [ref=e196]:
+    - generic [ref=e197]:
+      - generic [ref=e198]: P
+      - generic [ref=e199]: Posta Mail
+    - button "▶ Start demo" [ref=e200] [cursor=pointer]:
+      - generic [ref=e201]: ▶
+      - text: Start demo
+    - button "Presenter" [ref=e202] [cursor=pointer]
+    - generic [ref=e203]:
+      - button "Classic" [ref=e204] [cursor=pointer]
+      - button "Chat" [ref=e205] [cursor=pointer]
+    - button "Search mail, people, attachments /" [ref=e206] [cursor=pointer]:
+      - generic [ref=e207]: Search mail, people, attachments
+      - strong [ref=e208]: /
+    - button "◌" [ref=e209] [cursor=pointer]
+    - button "●" [ref=e210] [cursor=pointer]
+    - button "⚙" [ref=e211] [cursor=pointer]
+    - generic [ref=e212]: OH
+  - main [ref=e213]:
+    - generic [ref=e214]:
+      - generic [ref=e215]:
+        - button "✚ New Email" [ref=e216] [cursor=pointer]:
+          - generic [ref=e217]: ✚
+          - text: New Email
+        - button "🗑 Delete" [ref=e219] [cursor=pointer]:
+          - generic [ref=e220]: 🗑
+          - text: Delete
+        - button "🗄 Archive" [ref=e221] [cursor=pointer]:
+          - generic [ref=e222]: 🗄
+          - text: Archive
+        - button "↩ Reply" [ref=e224] [cursor=pointer]:
+          - generic [ref=e225]: ↩
+          - text: Reply
+        - button "↪ Reply All" [ref=e226] [cursor=pointer]:
+          - generic [ref=e227]: ↪
+          - text: Reply All
+        - button "➡ Forward" [ref=e228] [cursor=pointer]:
+          - generic [ref=e229]: ➡
+          - text: Forward
+        - button "🚩 Flag" [ref=e231] [cursor=pointer]:
+          - generic [ref=e232]: 🚩
+          - text: Flag
+        - button "✉ Mark Read" [ref=e233] [cursor=pointer]:
+          - generic [ref=e234]: ✉
+          - text: Mark Read
+        - button "💬 View as chat" [ref=e235] [cursor=pointer]:
+          - generic [ref=e236]: 💬
+          - text: View as chat
+      - generic [ref=e237]:
+        - complementary [ref=e238]:
+          - generic [ref=e239]: ▾ Favorites
+          - generic [ref=e240] [cursor=pointer]:
+            - generic [ref=e241]: 📥
+            - generic [ref=e242]: Inbox
+            - generic [ref=e243]: "7"
+          - generic [ref=e244] [cursor=pointer]:
+            - generic [ref=e245]: 📤
+            - generic [ref=e246]: Sent Items
+          - generic [ref=e247]: ▾ omar.hassan@worldposta.local
+          - generic [ref=e248] [cursor=pointer]:
+            - generic [ref=e249]: 📥
+            - generic [ref=e250]: Inbox
+            - generic [ref=e251]: "7"
+          - generic [ref=e252] [cursor=pointer]:
+            - generic [ref=e253]: ⭐
+            - generic [ref=e254]: Priority
+            - generic [ref=e255]: "3"
+          - generic [ref=e256] [cursor=pointer]:
+            - generic [ref=e257]: 📤
+            - generic [ref=e258]: Sent
+          - generic [ref=e259] [cursor=pointer]:
+            - generic [ref=e260]: 📝
+            - generic [ref=e261]: Drafts
+          - generic [ref=e262] [cursor=pointer]:
+            - generic [ref=e263]: 🗄
+            - generic [ref=e264]: Archive
+          - generic [ref=e265] [cursor=pointer]:
+            - generic [ref=e266]: 👥
+            - generic [ref=e267]: Support Shared
+            - generic [ref=e268]: "5"
+          - generic [ref=e269] [cursor=pointer]:
+            - generic [ref=e270]: 🗑
+            - generic [ref=e271]: Deleted Items
+        - generic [ref=e272]:
+          - generic [ref=e273]:
+            - generic [ref=e274]: 🔍
+            - text: Search Current Mailbox
+            - generic [ref=e275]: Ctrl+E
+          - generic [ref=e276]:
+            - generic [ref=e277]:
+              - button "Focused" [ref=e278] [cursor=pointer]
+              - button "Other" [ref=e279] [cursor=pointer]
+            - generic [ref=e281]: By Date ▾
+          - generic [ref=e282]: Today
+          - generic [ref=e283]:
+            - article [ref=e284] [cursor=pointer]:
+              - generic [ref=e286]: SN
+              - generic [ref=e287]:
+                - generic [ref=e288]:
+                  - generic [ref=e289]: Sara Nabil
+                  - generic [ref=e290]: 09:42
+                - generic [ref=e291]:
+                  - generic [ref=e292]: Proposal review before Thursday demo
+                  - generic [ref=e293]: 🚩
+                - generic [ref=e294]:
+                  - generic [ref=e295]: Can we make the classic screen feel premium enough for executives?
+                  - generic [ref=e296]: 📎
+            - article [ref=e297] [cursor=pointer]:
+              - generic [ref=e299]: YS
+              - generic [ref=e300]:
+                - generic [ref=e301]:
+                  - generic [ref=e302]: Youssef Samir
+                  - generic [ref=e303]: 08:15
+                - generic [ref=e305]: Invoice batch needs approval
+                - generic [ref=e306]:
+                  - generic [ref=e307]: The Q2 vendor batch is ready, but two invoices need a second look.
+                  - generic [ref=e308]: 📎
+            - article [ref=e309] [cursor=pointer]:
+              - generic [ref=e311]: MA
+              - generic [ref=e312]:
+                - generic [ref=e313]:
+                  - generic [ref=e314]: Mariam Adel
+                  - generic [ref=e315]: Mon
+                - generic [ref=e317]: Updated remote work policy
+                - generic [ref=e319]: Please review the updated policy before we publish it company-wide.
+            - article [ref=e320] [cursor=pointer]:
+              - generic [ref=e322]: SD
+              - generic [ref=e323]:
+                - generic [ref=e324]:
+                  - generic [ref=e325]: Support Desk
+                  - generic [ref=e326]: 07:58
+                - generic [ref=e327]:
+                  - generic [ref=e328]: "Escalation: shared mailbox delivery delay"
+                  - generic [ref=e329]: 🚩
+                - generic [ref=e331]: Several customers reported delayed responses from support@.
+            - article [ref=e332] [cursor=pointer]:
+              - generic [ref=e334]: LM
+              - generic [ref=e335]:
+                - generic [ref=e336]:
+                  - generic [ref=e337]: Lina Morgan
+                  - generic [ref=e338]: Tue
+                - generic [ref=e339]:
+                  - generic [ref=e340]: "Northstar onboarding: DNS + mailbox migration"
+                  - generic [ref=e341]: 🚩
+                - generic [ref=e342]:
+                  - generic [ref=e343]: We are ready for the migration window. Please confirm DNS cutover timing.
+                  - generic [ref=e344]: 📎
+          - generic [ref=e345]: 5 items · 3 unread · Connected to Exchange
+        - generic [ref=e346]:
+          - generic [ref=e347]:
+            - generic [ref=e348]: Updated remote work policy
+            - generic [ref=e349]:
+              - generic [ref=e350]: MA
+              - generic [ref=e351]:
+                - generic [ref=e352]: Mariam Adel <mariam.adel@worldposta.local>
+                - generic [ref=e353]:
+                  - text: "To: Omar Hassan"
+                  - generic [ref=e354]: Mon 12:04
+              - generic [ref=e355]:
+                - button "↩" [ref=e356] [cursor=pointer]
+                - button "↪" [ref=e357] [cursor=pointer]
+                - button "➡" [ref=e358] [cursor=pointer]
+          - generic [ref=e359]:
+            - article [ref=e360]:
+              - generic [ref=e361]:
+                - generic [ref=e362]: MA
+                - generic [ref=e363]:
+                  - strong [ref=e364]: Mariam Adel
+                  - generic [ref=e365]: "To: Omar"
+                - generic [ref=e366]: Mon 11:20
+              - paragraph [ref=e367]: Please review the updated policy before we publish it company-wide. I highlighted the sections that affect IT support availability.
+            - article [ref=e368]:
+              - generic [ref=e369]:
+                - generic [ref=e370]: OH
+                - generic [ref=e371]:
+                  - strong [ref=e372]: Omar Hassan
+                  - generic [ref=e373]: "To: Mariam"
+                - generic [ref=e374]: Mon 12:04
+              - paragraph [ref=e375]: Looks good. I only added a note about device compliance and VPN availability.

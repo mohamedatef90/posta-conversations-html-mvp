@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Posta Gate — Icon System</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cyan:    #00C8D4;
+    --blue:    #1A3FD0;
+    --indigo:  #5046D0;
+    --navy:    #0B1E6E;
+    --gray-50: #F9FAFB;
+    --gray-100:#F3F4F6;
+    --gray-200:#E5E7EB;
+    --gray-300:#D1D5DB;
+    --gray-400:#9CA3AF;
+    --gray-500:#6B7280;
+    --gray-600:#4B5563;
+    --gray-700:#374151;
+    --gray-800:#1F2937;
+    --gray-900:#111827;
+    --white:   #FFFFFF;
+    --stroke:  1.5;
+    --r: round;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family:'Inter',sans-serif; background:var(--gray-50); color:var(--gray-900); }
+
+  /* ── HERO ── */
+  .hero {
+    background:linear-gradient(135deg,var(--navy) 0%,#3328A0 60%,var(--blue) 100%);
+    padding:64px 40px 48px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before {
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 70% at 50% -10%,rgba(0,200,212,.2),transparent 65%);
+  }
+  .hero-inner { position:relative; max-width:960px; margin:0 auto; }
+  .hero-pill {
+    display:inline-block;
+    border:1px solid rgba(0,200,212,.35);
+    background:rgba(0,200,212,.1);
+    color:#5DE4EC;
+    font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    padding:5px 16px;border-radius:9999px;margin-bottom:20px;
+  }
+  .hero h1 { font-size:52px;font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1.1; }
+  .hero h1 span { color:#26D6E0; }
+  .hero-sub { color:rgba(255,255,255,.5);font-size:15px;margin-top:10px; }
+  .hero-stats { display:flex;gap:32px;justify-content:center;margin-top:28px;flex-wrap:wrap; }
+  .stat { color:rgba(255,255,255,.45);font-size:12px; }
+  .stat strong { color:rgba(255,255,255,.85);display:block;font-size:22px;font-weight:700;letter-spacing:-.02em; }
+
+  /* ── PAGE ── */
+  .page { max-width:1100px;margin:0 auto;padding:0 32px 80px; }
+
+  /* ── CONTROLS ── */
+  .controls {
+    position:sticky;top:0;z-index:50;
+    background:rgba(249,250,251,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--gray-200);
+    padding:12px 32px;
+    display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    margin:0 -32px;
+  }
+  .search-wrap { position:relative;flex:1;min-width:200px;max-width:320px; }
+  .search-input {
+    width:100%;
+    font-family:'Inter',sans-serif;font-size:13px;
+    border:1.5px solid var(--gray-200);border-radius:10px;
+    padding:8px 14px 8px 36px;outline:none;background:var(--white);color:var(--gray-900);
+    transition:border-color .15s,box-shadow .15s;
+  }
+  .search-input:focus { border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,63,208,.1); }
+  .search-icon { position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--gray-400); }
+
+  .size-btns { display:flex;gap:4px;background:var(--gray-100);padding:3px;border-radius:8px; }
+  .size-btn {
+    font-size:11px;font-weight:600;padding:5px 12px;border-radius:6px;
+    border:none;background:transparent;cursor:pointer;color:var(--gray-500);transition:.15s;
+  }
+  .size-btn.active { background:var(--white);color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,.08); }
+
+  .color-btns { display:flex;gap:6px;align-items:center; }
+  .color-dot {
+    width:22px;height:22px;border-radius:50%;cursor:pointer;border:2px solid transparent;
+    transition:transform .15s,box-shadow .15s;
+  }
+  .color-dot:hover { transform:scale(1.15); }
+  .color-dot.active { box-shadow:0 0 0 3px var(--gray-300); }
+  .color-dot.c-navy   { background:var(--navy); }
+  .color-dot.c-blue   { background:var(--blue); }
+  .color-dot.c-cyan   { background:var(--cyan); }
+  .color-dot.c-indigo { background:var(--indigo); }
+  .color-dot.c-gray   { background:var(--gray-500); }
+  .color-dot.c-black  { background:var(--gray-900); }
+
+  .count-badge {
+    margin-left:auto;
+    background:var(--gray-100);border:1px solid var(--gray-200);
+    color:var(--gray-500);font-size:11px;font-weight:600;
+    padding:4px 10px;border-radius:9999px;
+  }
+
+  /* ── SECTIONS ── */
+  .section { margin-top:40px; }
+  .section-head {
+    display:flex;align-items:baseline;gap:10px;
+    margin-bottom:16px;
+    border-bottom:1px solid var(--gray-200);
+    padding-bottom:10px;
+  }
+  .section-title { font-size:13px;font-weight:700;color:var(--gray-700); }
+  .section-count { font-size:11px;color:var(--gray-400); }
+
+  /* ── ICON GRID ── */
+  .icon-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(100px,1fr));
+    gap:8px;
+  }
+
+  .icon-card {
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    padding:16px 8px 12px;
+    background:var(--white);
+    border:1.5px solid var(--gray-200);
+    border-radius:12px;
+    cursor:pointer;
+    transition:all .15s;
+    position:relative;
+    user-select:none;
+  }
+  .icon-card:hover {
+    border-color:var(--blue);
+    box-shadow:0 4px 12px rgba(26,63,208,.1);
+    transform:translateY(-2px);
+  }
+  .icon-card.hidden { display:none; }
+
+  .icon-card svg { flex-shrink:0; transition:color .15s; }
+  .icon-name {
+    font-size:9.5px;font-weight:500;
+    color:var(--gray-500);
+    text-align:center;line-height:1.3;
+    word-break:break-word;
+  }
+  .icon-card:hover .icon-name { color:var(--gray-700); }
+
+  /* Copied flash */
+  .icon-card.copied { border-color:var(--cyan);background:#EDFCFD; }
+  .copy-toast {
+    position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
+    background:var(--gray-900);color:white;
+    font-size:12px;font-weight:500;
+    padding:8px 18px;border-radius:9999px;
+    pointer-events:none;
+    opacity:0;transition:opacity .2s;
+    z-index:999;white-space:nowrap;
+  }
+  .copy-toast.show { opacity:1; }
+
+  /* ── SIZE VARIANTS ── */
+  body.size-sm .icon-card { padding:12px 6px 10px; gap:6px; }
+  body.size-lg .icon-card { padding:24px 12px 16px; gap:10px; }
+  body.size-lg .icon-card svg { transform:scale(1.33); }
+  body.size-lg .icon-name { font-size:10.5px; }
+
+  /* ── USAGE SECTION ── */
+  .usage {
+    margin-top:48px;
+    background:var(--white);border:1px solid var(--gray-200);border-radius:16px;
+    overflow:hidden;
+  }
+  .usage-header {
+    background:linear-gradient(135deg,var(--navy),#3328A0);
+    padding:20px 24px;
+  }
+  .usage-header h3 { font-size:14px;font-weight:700;color:white; }
+  .usage-header p  { font-size:12px;color:rgba(255,255,255,.5);margin-top:3px; }
+  .usage-body { padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px; }
+  .code-block {
+    background:var(--gray-900);border-radius:10px;padding:16px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.7;
+    color:var(--gray-300);
+  }
+  .code-block .cm { color:#5DE4EC; }
+  .code-block .cv { color:#9B96EC; }
+  .code-block .cg { color:var(--gray-500); }
+  .spec-row { display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--gray-100); }
+  .spec-row:last-child { border:none; }
+  .spec-key { font-size:12px;color:var(--gray-500); }
+  .spec-val { font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);font-weight:500; }
+</style>
+</head>
+<body class="size-md">
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-pill">Icon System · Outline Style</div>
+    <h1>Posta Gate <span>Icons</span></h1>
+    <p class="hero-sub">24px grid · 1.5px stroke · Round caps · CSS colorable · SVG</p>
+    <div class="hero-stats">
+      <div class="stat"><strong>56</strong> Icons</div>
+      <div class="stat"><strong>8</strong> Categories</div>
+      <div class="stat"><strong>24px</strong> Base grid</div>
+      <div class="stat"><strong>1.5px</strong> Stroke weight</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="search-wrap">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" id="search" placeholder="Search icons…" oninput="filterIcons(this.value)">
+    </div>
+
+    <div class="size-btns">
+      <button class="size-btn" onclick="setSize('sm',this)">SM</button>
+      <button class="size-btn active" onclick="setSize('md',this)">MD</button>
+      <button class="size-btn" onclick="setSize('lg',this)">LG</button>
+    </div>
+
+    <div class="color-btns">
+      <div class="color-dot c-navy   active" title="Navy"   onclick="setColor('#0B1E6E',this)"></div>
+      <div class="color-dot c-blue"          title="Blue"   onclick="setColor('#1A3FD0',this)"></div>
+      <div class="color-dot c-cyan"          title="Cyan"   onclick="setColor('#00C8D4',this)"></div>
+      <div class="color-dot c-indigo"        title="Indigo" onclick="setColor('#5046D0',this)"></div>
+      <div class="color-dot c-gray"          title="Gray"   onclick="setColor('#6B7280',this)"></div>
+      <div class="color-dot c-black"         title="Black"  onclick="setColor('#111827',this)"></div>
+    </div>
+
+    <div class="count-badge" id="count-badge">56 icons</div>
+  </div>
+
+  <!-- ── MAILBOX ────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-title">Mailbox</span>
+      <span class="section-count">8 icons</span>
+    </div>
+    <div class="icon-grid" id="grid">
+
+      <!-- Inbox -->
+      <div class="icon-card" data-name="inbox" onclick="copyIcon(this,'inbox')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="3"/>
+          <path d="M2 14h5l2 3h6l2-3h5"/>
+        </svg>
+        <span class="icon-name">inbox</span>
+      </div>
+
+      <!-- Sent -->
+      <div class="icon-card" data-name="sent" onclick="copyIcon(this,'sent')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 2L11 13"/>
+          <path d="M22 2L15 22 11 13 2 9l20-7z"/>
+        </svg>
+        <span class="icon-name">sent</span>
+      </div>
+
+      <!-- Drafts -->
+      <div class="icon-card" data-name="drafts" onclick="copyIcon(this,'drafts')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 20h4l11-11a2.83 2.83 0 0 0-4-4L4 16v4z"/>
+          <path d="M14.5 6.5l3 3"/>
+          <rect x="2" y="17" width="8" height="2" rx="1"/>
+        </svg>
+        <span class="icon-name">drafts</span>
+      </div>
+
+      <!-- Archive -->
+      <div class="icon-card" data-name="archive" onclick="copyIcon(this,'archive')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="4" rx="1"/>
+          <path d="M4 7v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7"/>
+          <path d="M10 12h4M12 10v4"/>
+        </svg>
+        <span class="icon-name">archive</span>
+      </div>
+
+      <!-- Trash -->
+      <div class="icon-card" data-name="trash delete" onclick="copyIcon(this,'trash')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+          <path d="M10 11v6M14 11v6"/>
+          <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+        </svg>
+        <span class="icon-name">trash</span>
+      </div>
+
+      <!-- Spam -->
+      <div class="icon-card" data-name="spam junk" onclick="copyIcon(this,'spam')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <circle cx="12" cy="15" r=".5" fill="currentColor"/>
+        </svg>
+        <span class="icon-name">spam</span>
+      </div>
+
+      <!-- All Mail -->
+      <div class="icon-card" data-name="all mail" onclick="copyIcon(this,'all-mail')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="6" width="20" height="14" rx="2"/>
+          <path d="M2 9l10 6 10-6"/>
+          <path d="M6 3h12"/>
+          <path d="M8 1h8"/>
+        </svg>
+        <span class="icon-name">all mail</span>
+      </div>
+
+      <!-- Scheduled -->
+      <div class="icon-card" data-name="scheduled later send" onclick="copyIcon(this,'scheduled')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/>
+          <polyline points="12 7 12 12 15 15"/>
+        </svg>
+        <span class="icon-name">scheduled</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── EMAIL ACTIONS ──────────────────────────────────── -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-title">Email Actions</span>
+      <span class="section-count">10 icons</span>
+    </div>
+    <div class="icon-grid">
+
+      <!-- Compose -->
+      <div class="icon-card" data-name="compose new write" onclick="copyIcon(this,'compose')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+        </svg>
+        <span class="icon-name">compose</span>
+      </div>
+
+      <!-- Reply -->
+      <div class="icon-card" data-name="reply" onclick="copyIcon(this,'reply')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 17 4 12 9 7"/>
+          <path d="M20 18v-2a4 4 0 0 0-4-4H4"/>
+        </svg>
+        <span class="icon-name">reply</span>
+      </div>
+
+      <!-- Reply All -->
+      <div class="icon-card" data-name="reply all" onclick="copyIcon(this,'reply-all')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="7 17 2 12 7 7"/>
+          <polyline points="12 17 7 12 12 7"/>
+          <path d="M22 18v-2a4 4 0 0 0-4-4H7"/>
+        </svg>
+        <span class="icon-name">reply all</span>
+      </div>
+
+      <!-- Forward -->
+      <div class="icon-card" data-name="forward" onclick="copyIcon(this,'forward')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 17 20 12 15 7"/>
+          <path d="M4 18v-2a4 4 0 0 1 4-4h12"/>
+        </svg>
+        <span class="icon-name">forward</span>
+      </div>
+
+      <!-- Star -->
+      <div class="icon-card" data-name="star favourite" onclick="copyIcon(this,'star')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span class="icon-name">star</span>
+      </div>
+
+      <!-- Flag -->
+      <div class="icon-card" data-name="flag important" onclick="copyIcon(this,'flag')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+          <line x1="4" y1="22" x2="4" y2="15"/>
+        </svg>
+        <span class="icon-name">flag</span>
+      </div>
+
+      <!-- Mark Read -->
+      <div class="icon-card" data-name="mark read seen" onclick="copyIcon(this,'mark-read')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        <span class="icon-name">mark read</span>
+      </div>
+
+      <!-- Mark Unread -->
+      <div class="icon-card" data-name="mark unread unseen" onclick="copyIcon(this,'mark-unread')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+          <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+          <line x1="1" y1="1" x2="23" y2="23"/>
+        </svg>
+        <span class="icon-name">mark unread</span>
+      </div>
+
+      <!-- Pin -->
+      <div class="icon-card" data-name="pin pinned" onclick="copyIcon(this,'pin')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 17v5"/>
+          <path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v3.76z"/>
+        </svg>
+        <span class="icon-name">pin</span>
+      </div>
+
+      <!-- Snooze -->
+      <div class="icon-card" data-name="snooze sleep later" onclick="copyIcon(this,'snooze')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+          <line x1="6" y1="1" x2="6" y2="4"/>
+          <line x1="10" y1="1" x2="10" y2="4"/>
+          <line x1="14" y1="1" x2="14" y2="4"/>
+        </svg>
+        <span class="icon-name">snooze</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── ORGANIZATION ───────────────────────────────────── -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-title">Organization</span>
+      <span class="section-count">8 icons</span>
+    </div>
+    <div class="icon-grid">
+
+      <!-- Label / Tag -->
+      <div class="icon-card" data-name="label tag" onclick="copyIcon(this,'label')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+          <line x1="7" y1="7" x2="7.01" y2="7"/>
+        </svg>
+        <span class="icon-name">label</span>
+      </div>
+
+      <!-- Folder -->
+      <div class="icon-card" data-name="folder" onclick="copyIcon(this,'folder')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span class="icon-name">folder</span>
+      </div>
+
+      <!-- Filter -->
+      <div class="icon-card" data-name="filter sort" onclick="copyIcon(this,'filter')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+        </svg>
+        <span class="icon-name">filter</span>
+      </div>
+
+      <!-- Sort -->
+      <div class="icon-card" data-name="sort order" onclick="copyIcon(this,'sort')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="15" y2="12"/>
+          <line x1="3" y1="18" x2="9" y2="18"/>
+        </svg>
+        <span class="icon-name">sort</span>
+      </div>
+
+      <!-- Move -->
+      <div class="icon-card" data-name="move to" onclick="copyIcon(this,'move')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="M12 5l7 7-7 7"/>
+        </svg>
+        <span class="icon-name">move</span>
+      </div>
+
+      <!-- Select All -->
+      <div class="icon-card" data-name="select all check" onclick="copyIcon(this,'select-all')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="6" height="6" rx="1"/>
+          <rect x="3" y="13" width="6" height="6" rx="1"/>
+          <line x1="13" y1="8" x2="21" y2="8"/>
+          <line x1="13" y1="16" x2="21" y2="16"/>
+          <polyline points="17 6 19 8 21 6"/>
+        </svg>
+        <span class="icon-name">select all</span>
+      </div>
+
+      <!-- Merge -->
+      <div class="icon-card" data-name="merge threads" onclick="copyIcon(this,'merge')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="2" y2="12"/>
+          <line x1="8" y1="18" x2="2" y2="12"/>
+          <line x1="22" y1="12" x2="2" y2="12"/>
+          <path d="M15 6l7 6-7 6"/>
+        </svg>
+        <span class="icon-name">merge</span>
+      </div>
+
+      <!-- Split / Thread -->
+      <div class="icon-card" data-name="thread split" onclick="copyIcon(this,'thread')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="12" x2="14" y2="12"/>
+          <line x1="4" y1="18" x2="10" y2="18"/>
+          <circle cx="20" cy="6" r="2"/>
+          <circle cx="14" cy="12" r="2"/>
+          <circle cx="10" cy="18" r="2"/>
+        </svg>
+        <span class="icon-name">thread</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── ATTACHMENTS & CONTENT ──────────────────────────── -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-title">Attachments & Content</span>
+      <span class="section-count">8 icons</span>
+    </div>
+    <div class="icon-grid">
+
+      <!-- Attachment -->
+      <div class="icon-card" data-name="attachment paperclip" onclick="copyIcon(this,'attachment')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+        </svg>
+        <span class="icon-name">attachment</span>
+      </div>
+
+      <!-- Download -->
+      <div class="icon-card" data-name="download save" onclick="copyIcon(this,'download')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span class="icon-name">download</span>
+      </div>
+
+      <!-- Upload -->
+      <div class="icon-card" data-name="upload" onclick="copyIcon(this,'upload')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+        <span class="icon-name">upload</span>
+      </div>
+
+      <!-- Image -->
+      <div class="icon-card" data-name="image photo picture" onclick="copyIcon(this,'image')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <span class="icon-name">image</span>
+      </div>
+
+      <!-- Link -->
+      <div class="icon-card" data-name="link url" onclick="copyIcon(this,'link')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        <span class="icon-name">link</span>
+      </div>
+
+      <!-- File -->
+      <div class="icon-card" data-name="file document" onclick="copyIcon(this,'file')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="9" y1="13" x2="15" y2="13"/>
+          <line x1="9" y1="17" x2="13" y2="17"/>
+        </svg>
+        <span class="icon-name">file</span>
+      </div>
+
+      <!-- Print -->
+      <div class="icon-card" data-name="print" onclick="copyIcon(this,'print')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
+        <span class="icon-name">print</span>
+      </div>
+
+      <!-- Calendar / Event -->
+      <div class="icon-card" data-name="calendar event date" onclick="copyIcon(this,'calendar')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+          <path d="M9 16l2 2 4-4"/>
+        </svg>
+        <span class="icon-name">calendar</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── ACCOUNT & PEOPLE ───────────────────────────────── -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-title">Account & People</span>
+      <span class="section-count">7 icons</span>
+    </div>
+    <div class="icon-grid">
+
+      <!-- Profile -->
+      <div class="icon-card" data-name="profile person user account" onclick="copyIcon(this,'profile')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span class="icon-name">profile</span>
+      </div>
+
+      <!-- Contacts / Group -->
+      <div class="icon-card" data-name="contacts group team" onclick="copyIcon(this,'contacts')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <span class="icon-name">contacts</span>
+      </div>
+
+      <!-- Add Contact -->
+      <div class="icon-card" data-name="add contact person" onclick="copyIcon(this,'add-contact')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="8.5" cy="7" r="4"/>
+          <line x1="20" y1="8" x2="20" y2="14"/>
+          <line x1="17" y1="11" x2="23" y2="11"/>
+        </svg>
+        <span class="icon-name">add contact</span>
+      </div>
+
+      <!-- Account Switch -->
+      <div class="icon-card" data-name="switch account" onclick="copyIcon(this,'switch-account')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4 3.58-7 8-7"/>
+          <polyline points="17 18 20 21 23 18"/>
+          <path d="M20 21v-7"/>
+        </svg>
+        <span class="icon-name">switch account</span>
+      </div>
+
+      <!-- Signature -->
+      <div class="icon-card" data-name="signature sign" onclick="copyIcon(this,'signature')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 17c3.6-3.6 4-8 6-8s2.4 4 4 4 3-2.5 5-2.5"/>
+          <line x1="3" y1="21" x2="21" y2="21"/>
+        </svg>
+        <span class="icon-name">signature</span>
+      </div>
+
+      <!-- Delegate / Share -->
+      <div class="icon-card" data-name="delegate share" onclick="copyIcon(this,'delegate')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"/>
+          <circle cx="6" cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        <span class="icon-name">share</span>
+      </div>
+
+      <!-- Blocked -->
+      <div class="icon-card" data-name="block blocked" onclick="copyIcon(this,'blocked')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="7" r="4"/>
+          <path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/>
+          <line x1="3" y1="3" x2="21" y2="21"/>
+        </svg>
+        <span class="icon-name">blocked</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── UI CONTROLS ────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-title">UI Controls</span>
+      <span class="section-count">9 icons</span>
+    </div>
+    <div class="icon-grid">
+
+      <!-- Search -->
+      <div class="icon-card" data-name="search find" onclick="copyIcon(this,'search')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <span class="icon-name">search</span>
+      </div>
+
+      <!-- Settings / Gear -->
+      <div class="icon-card" data-name="settings gear preferences" onclick="copyIcon(this,'settings')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+        <span class="icon-name">settings</span>
+      </div>
+
+      <!-- Bell / Notifications -->
+      <div class="icon-card" data-name="notifications bell alert" onclick="copyIcon(this,'notifications')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="icon-name">notifications</span>
+      </div>
+
+      <!-- Close / X -->
+      <div class="icon-card" data-name="close x dismiss" onclick="copyIcon(this,'close')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+        <span class="icon-name">close</span>
+      </div>
+
+      <!-- Menu / Hamburger -->
+      <div class="icon-card" data-name="menu hamburger nav" onclick="copyIcon(this,'menu')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="7" x2="21" y2="7"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="17" x2="21" y2="17"/>
+        </svg>
+        <span class="icon-name">menu</span>
+      </div>
+
+      <!-- More / Ellipsis -->
+      <div class="icon-card" data-name="more options dots" onclick="copyIcon(this,'more')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="5" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="19" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <span class="icon-name">more</span>
+      </div>
+
+      <!-- More Vertical -->
+      <div class="icon-card" data-name="more vertical dots kebab" onclick="copyIcon(this,'more-vertical')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="5" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="12" cy="19" r="1.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <span class="icon-name">more vertical</span>
+      </div>
+
+      <!-- Sync / Refresh -->
+      <div class="icon-card" data-name="sync refresh reload" onclick="copyIcon(this,'sync')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 4 1 10 7 10"/>
+          <polyline points="23 20 23 14 17 14"/>
+          <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/>
+        </svg>
+        <span class="icon-name">sync</span>
+      </div>
+
+      <!-- Grid View -->
+      <div class="icon-card" data-name="grid view layout" onclick="copyIcon(this,'grid-view')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        <span class="icon-name">grid view</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── NAVIGATION ─────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-title">Navigation & Chevrons</span>
+      <span class="section-count">6 icons</span>
+    </div>
+    <div class="icon-grid">
+
+      <div class="icon-card" data-name="chevron right next" onclick="copyIcon(this,'chevron-right')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+        <span class="icon-name">chevron right</span>
+      </div>
+
+      <div class="icon-card" data-name="chevron left back" onclick="copyIcon(this,'chevron-left')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        <span class="icon-name">chevron left</span>
+      </div>
+
+      <div class="icon-card" data-name="chevron down expand" onclick="copyIcon(this,'chevron-down')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+        <span class="icon-name">chevron down</span>
+      </div>
+
+      <div class="icon-card" data-name="chevron up collapse" onclick="copyIcon(this,'chevron-up')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"/>
+        </svg>
+        <span class="icon-name">chevron up</span>
+      </div>
+
+      <div class="icon-card" data-name="plus add new" onclick="copyIcon(this,'plus')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        <span class="icon-name">plus</span>
+      </div>
+
+      <div class="icon-card" data-name="external link open" onclick="copyIcon(this,'external-link')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        <span class="icon-name">external link</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── STATUS & FEEDBACK ──────────────────────────────── -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-title">Status & Feedback</span>
+      <span class="section-count">8 icons</span>
+    </div>
+    <div class="icon-grid">
+
+      <div class="icon-card" data-name="check done success" onclick="copyIcon(this,'check')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <span class="icon-name">check</span>
+      </div>
+
+      <div class="icon-card" data-name="double check delivered read" onclick="copyIcon(this,'double-check')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 12 8 16 16 7"/>
+          <polyline points="9 12 13 16 21 7"/>
+        </svg>
+        <span class="icon-name">double check</span>
+      </div>
+
+      <div class="icon-card" data-name="info information" onclick="copyIcon(this,'info')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="16" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+        <span class="icon-name">info</span>
+      </div>
+
+      <div class="icon-card" data-name="warning caution alert" onclick="copyIcon(this,'warning')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <span class="icon-name">warning</span>
+      </div>
+
+      <div class="icon-card" data-name="error fail x circle" onclick="copyIcon(this,'error')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="15" y1="9" x2="9" y2="15"/>
+          <line x1="9" y1="9" x2="15" y2="15"/>
+        </svg>
+        <span class="icon-name">error</span>
+      </div>
+
+      <div class="icon-card" data-name="loading spinner" onclick="copyIcon(this,'loading')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+        </svg>
+        <span class="icon-name">loading</span>
+      </div>
+
+      <div class="icon-card" data-name="lock secure private" onclick="copyIcon(this,'lock')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <span class="icon-name">lock</span>
+      </div>
+
+      <div class="icon-card" data-name="verified badge check" onclick="copyIcon(this,'verified')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12l2 2 4-4"/>
+          <path d="M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0z"/>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
+        </svg>
+        <span class="icon-name">verified</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── USAGE & SPECS ──────────────────────────────────── -->
+  <div class="usage">
+    <div class="usage-header">
+      <h3>Usage & Specifications</h3>
+      <p>Click any icon to copy its SVG code · All icons are CSS-colorable via currentColor</p>
+    </div>
+    <div class="usage-body">
+      <div>
+        <div class="code-block">
+<span class="cg">&lt;!-- Basic usage --&gt;</span>
+<span class="cm">&lt;svg</span>
+  width=<span class="cv">"24"</span>
+  height=<span class="cv">"24"</span>
+  viewBox=<span class="cv">"0 0 24 24"</span>
+  fill=<span class="cv">"none"</span>
+  stroke=<span class="cv">"currentColor"</span>
+  stroke-width=<span class="cv">"1.5"</span>
+  stroke-linecap=<span class="cv">"round"</span>
+  stroke-linejoin=<span class="cv">"round"</span><span class="cm">&gt;</span>
+  <span class="cg">&lt;!-- path data --&gt;</span>
+<span class="cm">&lt;/svg&gt;</span></div>
+        <div class="code-block" style="margin-top:8px">
+<span class="cg">/* CSS color control */</span>
+<span class="cm">.icon</span> {
+  color<span class="cv">: #1A3FD0</span>;    <span class="cg">/* --blue-600 */</span>
+  width<span class="cv">: 24px</span>;
+  height<span class="cv">: 24px</span>;
+}
+<span class="cm">.icon:hover</span> {
+  color<span class="cv">: #00C8D4</span>;  <span class="cg">/* --cyan-500 */</span>
+}</div>
+      </div>
+      <div>
+        <div class="spec-row"><span class="spec-key">Grid</span><span class="spec-val">24 × 24 px</span></div>
+        <div class="spec-row"><span class="spec-key">Stroke weight</span><span class="spec-val">1.5 px</span></div>
+        <div class="spec-row"><span class="spec-key">Stroke cap</span><span class="spec-val">round</span></div>
+        <div class="spec-row"><span class="spec-key">Stroke join</span><span class="spec-val">round</span></div>
+        <div class="spec-row"><span class="spec-key">Fill</span><span class="spec-val">none (outline)</span></div>
+        <div class="spec-row"><span class="spec-key">Color model</span><span class="spec-val">currentColor</span></div>
+        <div class="spec-row"><span class="spec-key">Min touch target</span><span class="spec-val">44 × 44 px</span></div>
+        <div class="spec-row"><span class="spec-key">Sizes supported</span><span class="spec-val">16 / 20 / 24 / 32 px</span></div>
+        <div class="spec-row"><span class="spec-key">Format</span><span class="spec-val">Inline SVG / SVG sprite</span></div>
+        <div class="spec-row"><span class="spec-key">Icon set base</span><span class="spec-val">Feather Icons extended</span></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- Copy toast -->
+<div class="copy-toast" id="copy-toast">SVG copied to clipboard ✓</div>
+
+<script>
+  // Active color state
+  let activeColor = '#0B1E6E';
+
+  function setColor(hex, el) {
+    activeColor = hex;
+    document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('.icon-card svg').forEach(svg => {
+      svg.style.color = hex;
+    });
+  }
+
+  function setSize(sz, el) {
+    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    document.body.className = 'size-' + sz;
+  }
+
+  function filterIcons(q) {
+    const cards = document.querySelectorAll('.icon-card');
+    let visible = 0;
+    const lq = q.toLowerCase();
+    cards.forEach(c => {
+      const name = (c.dataset.name || '').toLowerCase();
+      const match = !lq || name.includes(lq);
+      c.classList.toggle('hidden', !match);
+      if (match) visible++;
+    });
+    document.getElementById('count-badge').textContent = visible + ' icon' + (visible !== 1 ? 's' : '');
+  }
+
+  // Apply initial color
+  document.querySelectorAll('.icon-card svg').forEach(svg => {
+    svg.style.color = activeColor;
+  });
+
+  function copyIcon(card, name) {
+    const svg = card.querySelector('svg');
+    const clone = svg.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('stroke', 'currentColor');
+    const svgStr = clone.outerHTML;
+
+    navigator.clipboard.writeText(svgStr).then(() => {
+      card.classList.add('copied');
+      setTimeout(() => card.classList.remove('copied'), 800);
+      const toast = document.getElementById('copy-toast');
+      toast.textContent = `"${name}" icon copied ✓`;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }).catch(() => {
+      // Fallback: select
+      const t = document.createElement('textarea');
+      t.value = svgStr;
+      document.body.appendChild(t);
+      t.select();
+      document.execCommand('copy');
+      document.body.removeChild(t);
+    });
+  }
+</script>
+</body>
+</html>

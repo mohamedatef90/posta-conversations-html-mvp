@@ -1,0 +1,21 @@
+- main [ref=e92]:
+  - generic [ref=e93]:
+    - generic [ref=e94]:
+      - generic [ref=e95]: P
+      - generic [ref=e96]: Posta Mail
+    - generic [ref=e97]:
+      - generic [ref=e98]: Posta Mail prototype · dual-mode Exchange experience
+      - heading "Executive control meets conversation speed" [level=1] [ref=e99]
+      - paragraph [ref=e100]: "A premium dual-mode mailbox for high-performance teams: enterprise-grade folder control with chat-style conversation threads over the same Exchange mailbox."
+  - generic [ref=e101]:
+    - generic [ref=e102]: Secure workspace access
+    - heading "Sign in to continue" [level=2] [ref=e103]
+    - paragraph [ref=e104]: Demo account credentials are pre-filled. This simulates Active Directory / Entra ID authentication with MFA.
+    - generic [ref=e105]:
+      - generic [ref=e106]: Corporate email address
+      - textbox [ref=e107]: omar.hassan@worldposta.local
+    - generic [ref=e108]:
+      - generic [ref=e109]: Password
+      - textbox [ref=e110]: posta-demo
+    - button "Continue with Posta ID" [ref=e111] [cursor=pointer]
+    - paragraph [ref=e112]: Production deployment supports Kerberos SSO and certificate-based authentication for managed devices.
