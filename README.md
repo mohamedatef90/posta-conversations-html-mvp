@@ -1,11 +1,12 @@
 # Posta Conversations HTML MVP
 
-Static no-framework prototype for Posta Mail / Posta Conversations.
+Static no-framework prototype for Posta Mail / Posta Conversations: a dual-mode mailbox (Classic three-pane mail and Chat conversations over the same simulated Exchange data), built to demo the product to stakeholders. Everything is simulated: there is no backend, no real email, and no build step.
 
 ## Run
 
+From the repository folder:
+
 ```bash
-cd C:/Users/Atef/Desktop/my-projects/posta-conversations-html-mvp
 python -m http.server 5173
 ```
 
@@ -62,6 +63,18 @@ http://127.0.0.1:5173/
 - Keyboard navigation
 - Each step updates app state (mode, selected thread, offline, failed send)
 - Projector-friendly: compact pitch cards, not blocking modals
+
+## Files
+
+- `index.html`: page markup
+- `app.js`: the whole application (one `state` object and a `render()` function)
+- `data.js`: the simulated dataset (`window.POSTA_DATA`)
+- `styles.css`: all styling
+- `storage-*.json`: browser storage-state files (localStorage presets for onboarding, mode, and demo step)
+- `assets/`: Posta Gate design-system and icon reference pages
+- `vendor/fontawesome/`: bundled Font Awesome
+
+There is no package.json, lint, or test suite; edit a file and reload the browser.
 
 ## Scope
 
